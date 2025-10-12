@@ -1611,6 +1611,36 @@ export interface SiteConfiguration {
   warning_color?: string | null;
   danger_color?: string | null;
   info_color?: string | null;
+  header: {
+    logo: number | Media;
+    menus: (number | Menu)[];
+    button: {
+      text: string;
+      link: string;
+    };
+  };
+  footer: {
+    left: {
+      logo: number | Media;
+      text: string;
+      socialMedia?:
+        | {
+            icon: number | Media;
+            url: string;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    right: {
+      title: string;
+      subtitle: string;
+      mapUrl: string;
+    };
+    bottom: {
+      copyright: string;
+      reserve: string;
+    };
+  };
   title?: string | null;
   description?: string | null;
   /**
@@ -1637,6 +1667,48 @@ export interface SiteConfigurationSelect<T extends boolean = true> {
   warning_color?: T;
   danger_color?: T;
   info_color?: T;
+  header?:
+    | T
+    | {
+        logo?: T;
+        menus?: T;
+        button?:
+          | T
+          | {
+              text?: T;
+              link?: T;
+            };
+      };
+  footer?:
+    | T
+    | {
+        left?:
+          | T
+          | {
+              logo?: T;
+              text?: T;
+              socialMedia?:
+                | T
+                | {
+                    icon?: T;
+                    url?: T;
+                    id?: T;
+                  };
+            };
+        right?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              mapUrl?: T;
+            };
+        bottom?:
+          | T
+          | {
+              copyright?: T;
+              reserve?: T;
+            };
+      };
   title?: T;
   description?: T;
   image?: T;

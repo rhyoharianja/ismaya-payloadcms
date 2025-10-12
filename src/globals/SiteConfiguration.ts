@@ -94,6 +94,128 @@ export const SiteConfiguration: GlobalConfig = {
           ],
         },
         {
+          label: 'Header',
+          fields: [
+            {
+              name: 'header',
+              type: 'group',
+              fields: [
+                {
+                  name: 'logo',
+                  type: 'upload',
+                  relationTo: 'media',
+                  required: true,
+                },
+                {
+                  name: 'menus',
+                  type: 'relationship',
+                  relationTo: 'menus',
+                  hasMany: true,
+                  required: true,
+                },
+                {
+                  name: 'button',
+                  type: 'group',
+                  fields: [
+                    {
+                      name: 'text',
+                      type: 'text',
+                      required: true,
+                    },
+                    {
+                      name: 'link',
+                      type: 'text',
+                      required: true,
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+        {
+          label: 'Footer',
+          fields: [
+            {
+              name: 'footer',
+              type: 'group',
+              fields: [
+                {
+                  name: 'left',
+                  type: 'group',
+                  fields: [
+                    {
+                      name: 'logo',
+                      type: 'upload',
+                      relationTo: 'media',
+                      required: true,
+                    },
+                    {
+                      name: 'text',
+                      type: 'text',
+                      required: true,
+                    },
+                    {
+                      name: 'socialMedia',
+                      type: 'array',
+                      fields: [
+                        {
+                          name: 'icon',
+                          type: 'upload',
+                          relationTo: 'media',
+                          required: true,
+                        },
+                        {
+                          name: 'url',
+                          type: 'text',
+                          required: true,
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  name: 'right',
+                  type: 'group',
+                  fields: [
+                    {
+                      name: 'title',
+                      type: 'text',
+                      required: true,
+                    },
+                    {
+                      name: 'subtitle',
+                      type: 'text',
+                      required: true,
+                    },
+                    {
+                      name: 'mapUrl',
+                      type: 'text',
+                      required: true,
+                    },
+                  ],
+                },
+                {
+                  name: 'bottom',
+                  type: 'group',
+                  fields: [
+                    {
+                      name: 'copyright',
+                      type: 'text',
+                      required: true,
+                    },
+                    {
+                      name: 'reserve',
+                      type: 'text',
+                      required: true,
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+        {
           label: 'SEO',
           fields: [
             MetaTitleField({
