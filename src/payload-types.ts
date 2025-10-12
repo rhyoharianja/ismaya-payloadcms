@@ -240,6 +240,33 @@ export interface Page {
               [k: string]: unknown;
             };
             backgroundImage: number | Media;
+            ourLocationsType: 'none' | 'single' | 'multiple';
+            singleLocation?: {
+              location: {
+                address: string;
+                mapsUrl: string;
+              };
+              contact: {
+                name: string;
+                phoneNumber: string;
+              };
+              openHours?:
+                | {
+                    days: string;
+                    hours: string;
+                    id?: string | null;
+                  }[]
+                | null;
+            };
+            multipleLocation?:
+              | {
+                  address: string;
+                  mapsUrl: string;
+                  openHours: string;
+                  contact: string;
+                  id?: string | null;
+                }[]
+              | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'heroes';
@@ -265,6 +292,13 @@ export interface Page {
               id?: string | null;
             }[];
             style: 'grid' | 'carousel' | 'masonry';
+            links?:
+              | {
+                  name: string;
+                  url: string;
+                  id?: string | null;
+                }[]
+              | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'galleries';
@@ -411,6 +445,33 @@ export interface Brand {
               [k: string]: unknown;
             };
             backgroundImage: number | Media;
+            ourLocationsType: 'none' | 'single' | 'multiple';
+            singleLocation?: {
+              location: {
+                address: string;
+                mapsUrl: string;
+              };
+              contact: {
+                name: string;
+                phoneNumber: string;
+              };
+              openHours?:
+                | {
+                    days: string;
+                    hours: string;
+                    id?: string | null;
+                  }[]
+                | null;
+            };
+            multipleLocation?:
+              | {
+                  address: string;
+                  mapsUrl: string;
+                  openHours: string;
+                  contact: string;
+                  id?: string | null;
+                }[]
+              | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'heroes';
@@ -423,6 +484,13 @@ export interface Brand {
               id?: string | null;
             }[];
             style: 'grid' | 'carousel' | 'masonry';
+            links?:
+              | {
+                  name: string;
+                  url: string;
+                  id?: string | null;
+                }[]
+              | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'galleries';
@@ -572,6 +640,33 @@ export interface News {
               [k: string]: unknown;
             };
             backgroundImage: number | Media;
+            ourLocationsType: 'none' | 'single' | 'multiple';
+            singleLocation?: {
+              location: {
+                address: string;
+                mapsUrl: string;
+              };
+              contact: {
+                name: string;
+                phoneNumber: string;
+              };
+              openHours?:
+                | {
+                    days: string;
+                    hours: string;
+                    id?: string | null;
+                  }[]
+                | null;
+            };
+            multipleLocation?:
+              | {
+                  address: string;
+                  mapsUrl: string;
+                  openHours: string;
+                  contact: string;
+                  id?: string | null;
+                }[]
+              | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'heroes';
@@ -584,6 +679,13 @@ export interface News {
               id?: string | null;
             }[];
             style: 'grid' | 'carousel' | 'masonry';
+            links?:
+              | {
+                  name: string;
+                  url: string;
+                  id?: string | null;
+                }[]
+              | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'galleries';
@@ -706,6 +808,33 @@ export interface Event {
               [k: string]: unknown;
             };
             backgroundImage: number | Media;
+            ourLocationsType: 'none' | 'single' | 'multiple';
+            singleLocation?: {
+              location: {
+                address: string;
+                mapsUrl: string;
+              };
+              contact: {
+                name: string;
+                phoneNumber: string;
+              };
+              openHours?:
+                | {
+                    days: string;
+                    hours: string;
+                    id?: string | null;
+                  }[]
+                | null;
+            };
+            multipleLocation?:
+              | {
+                  address: string;
+                  mapsUrl: string;
+                  openHours: string;
+                  contact: string;
+                  id?: string | null;
+                }[]
+              | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'heroes';
@@ -718,6 +847,13 @@ export interface Event {
               id?: string | null;
             }[];
             style: 'grid' | 'carousel' | 'masonry';
+            links?:
+              | {
+                  name: string;
+                  url: string;
+                  id?: string | null;
+                }[]
+              | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'galleries';
@@ -950,6 +1086,39 @@ export interface PagesSelect<T extends boolean = true> {
               tagline?: T;
               content?: T;
               backgroundImage?: T;
+              ourLocationsType?: T;
+              singleLocation?:
+                | T
+                | {
+                    location?:
+                      | T
+                      | {
+                          address?: T;
+                          mapsUrl?: T;
+                        };
+                    contact?:
+                      | T
+                      | {
+                          name?: T;
+                          phoneNumber?: T;
+                        };
+                    openHours?:
+                      | T
+                      | {
+                          days?: T;
+                          hours?: T;
+                          id?: T;
+                        };
+                  };
+              multipleLocation?:
+                | T
+                | {
+                    address?: T;
+                    mapsUrl?: T;
+                    openHours?: T;
+                    contact?: T;
+                    id?: T;
+                  };
               id?: T;
               blockName?: T;
             };
@@ -981,6 +1150,13 @@ export interface PagesSelect<T extends boolean = true> {
                     id?: T;
                   };
               style?: T;
+              links?:
+                | T
+                | {
+                    name?: T;
+                    url?: T;
+                    id?: T;
+                  };
               id?: T;
               blockName?: T;
             };
@@ -1092,6 +1268,39 @@ export interface NewsSelect<T extends boolean = true> {
               tagline?: T;
               content?: T;
               backgroundImage?: T;
+              ourLocationsType?: T;
+              singleLocation?:
+                | T
+                | {
+                    location?:
+                      | T
+                      | {
+                          address?: T;
+                          mapsUrl?: T;
+                        };
+                    contact?:
+                      | T
+                      | {
+                          name?: T;
+                          phoneNumber?: T;
+                        };
+                    openHours?:
+                      | T
+                      | {
+                          days?: T;
+                          hours?: T;
+                          id?: T;
+                        };
+                  };
+              multipleLocation?:
+                | T
+                | {
+                    address?: T;
+                    mapsUrl?: T;
+                    openHours?: T;
+                    contact?: T;
+                    id?: T;
+                  };
               id?: T;
               blockName?: T;
             };
@@ -1107,6 +1316,13 @@ export interface NewsSelect<T extends boolean = true> {
                     id?: T;
                   };
               style?: T;
+              links?:
+                | T
+                | {
+                    name?: T;
+                    url?: T;
+                    id?: T;
+                  };
               id?: T;
               blockName?: T;
             };
@@ -1155,6 +1371,39 @@ export interface EventsSelect<T extends boolean = true> {
               tagline?: T;
               content?: T;
               backgroundImage?: T;
+              ourLocationsType?: T;
+              singleLocation?:
+                | T
+                | {
+                    location?:
+                      | T
+                      | {
+                          address?: T;
+                          mapsUrl?: T;
+                        };
+                    contact?:
+                      | T
+                      | {
+                          name?: T;
+                          phoneNumber?: T;
+                        };
+                    openHours?:
+                      | T
+                      | {
+                          days?: T;
+                          hours?: T;
+                          id?: T;
+                        };
+                  };
+              multipleLocation?:
+                | T
+                | {
+                    address?: T;
+                    mapsUrl?: T;
+                    openHours?: T;
+                    contact?: T;
+                    id?: T;
+                  };
               id?: T;
               blockName?: T;
             };
@@ -1170,6 +1419,13 @@ export interface EventsSelect<T extends boolean = true> {
                     id?: T;
                   };
               style?: T;
+              links?:
+                | T
+                | {
+                    name?: T;
+                    url?: T;
+                    id?: T;
+                  };
               id?: T;
               blockName?: T;
             };
@@ -1214,6 +1470,39 @@ export interface BrandsSelect<T extends boolean = true> {
               tagline?: T;
               content?: T;
               backgroundImage?: T;
+              ourLocationsType?: T;
+              singleLocation?:
+                | T
+                | {
+                    location?:
+                      | T
+                      | {
+                          address?: T;
+                          mapsUrl?: T;
+                        };
+                    contact?:
+                      | T
+                      | {
+                          name?: T;
+                          phoneNumber?: T;
+                        };
+                    openHours?:
+                      | T
+                      | {
+                          days?: T;
+                          hours?: T;
+                          id?: T;
+                        };
+                  };
+              multipleLocation?:
+                | T
+                | {
+                    address?: T;
+                    mapsUrl?: T;
+                    openHours?: T;
+                    contact?: T;
+                    id?: T;
+                  };
               id?: T;
               blockName?: T;
             };
@@ -1229,6 +1518,13 @@ export interface BrandsSelect<T extends boolean = true> {
                     id?: T;
                   };
               style?: T;
+              links?:
+                | T
+                | {
+                    name?: T;
+                    url?: T;
+                    id?: T;
+                  };
               id?: T;
               blockName?: T;
             };

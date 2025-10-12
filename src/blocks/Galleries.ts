@@ -40,5 +40,21 @@ export const Galleries: Block = {
             ],
             required: true,
         },
+        {
+            name: 'links',
+            type: 'array',
+            fields: [
+                {
+                    name: 'name',
+                    type: 'text',
+                    required: true,
+                },
+                {
+                    name: 'url',
+                    type: 'text',
+                    required: true,
+                },
+            ],
+        },
     ],
 }
