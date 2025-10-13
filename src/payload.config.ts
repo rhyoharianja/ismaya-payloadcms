@@ -26,7 +26,6 @@ import { Slider } from './blocks/Slider'
 import { SiteConfiguration } from './globals/SiteConfiguration'
 import { seoPlugin } from '@payloadcms/plugin-seo'
 
-// import BeforeLogin from './components/Login/BeforeLogin';
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -34,13 +33,10 @@ const dirname = path.dirname(filename)
 export default buildConfig({
   admin: {
     user: Users.slug,
+    theme: 'light',
     importMap: {
       baseDir: path.resolve(dirname),
     },
-    // nav: {
-    //   'Content': ['pages', 'events', 'news', 'brands'],
-    //   'Globals': ['site-configuration', 'menus'],
-    // },
     components: {
       graphics: {
         Logo: '/components/payload/logo',
