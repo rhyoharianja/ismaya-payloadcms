@@ -1,10 +1,11 @@
 import type { CollectionConfig } from 'payload'
 import type { User } from '@/payload-types'
-import { Cards } from '../blocks/Cards'
-import { Heroes } from '../blocks/Heroes'
-import { Milestones } from '../blocks/Milestones'
-import { Galleries } from '../blocks/Galleries'
-import { Texts } from '../blocks/Texts'
+import { TwoColumns } from '../blocks/TwoColumns'
+import { Hero } from '../blocks/Hero'
+import { HeroFullscreen } from '../blocks/HeroFullscreen'
+import { Milestone } from '../blocks/Milestone'
+import { Gallery } from '../blocks/Gallery'
+import { RichText } from '../blocks/RichText'
 import { Carousel } from '../blocks/Carousel'
 import { Slider } from '../blocks/Slider'
 import { slug } from '../fields/slug'
@@ -17,7 +18,7 @@ export const Pages: CollectionConfig = {
     plural: 'Pages',
   },
   admin: {
-    useAsTitle: 'headline'
+    useAsTitle: 'title'
   },
   versions: true,
   defaultPopulate: {
@@ -46,30 +47,17 @@ export const Pages: CollectionConfig = {
       type: 'tabs',
       tabs: [
         {
-          label: 'Content',
+          label: 'Base',
           fields: [
             {
-              name: 'headline',
+              name: 'title',
               type: 'text',
               required: true,
             },
-            slug({ trackingField: 'headline' }),
+            slug({ trackingField: 'title' }),
             {
-              name: 'tagline',
+              name: 'description',
               type: 'text',
-              required: true,
-            },
-            {
-              name: 'status',
-              type: 'select',
-              options: [
-                { label: 'Draft', value: 'draft' },
-                { label: 'Request Review', value: 'request-review' },
-                { label: 'On Review', value: 'on-review' },
-                { label: 'Publish', value: 'publish' },
-                { label: 'Unpublish', value: 'unpublish' },
-                { label: 'Schedule', value: 'schedule' },
-              ],
               required: true,
             },
             {
@@ -99,9 +87,31 @@ export const Pages: CollectionConfig = {
               hasMany: false,
             },
             {
-              name: 'blocks',
+              name: 'status',
+              type: 'select',
+              options: [
+                { label: 'Draft', value: 'draft' },
+                { label: 'Request Review', value: 'request-review' },
+                { label: 'On Review', value: 'on-review' },
+                { label: 'Publish', value: 'publish' },
+                { label: 'Unpublish', value: 'unpublish' },
+                { label: 'Schedule', value: 'schedule' },
+              ],
+              required: true,
+            },
+          ]
+        },
+        {
+          label: 'Content',
+          fields: [
+            {
+              name: 'content',
               type: 'blocks',
-              blocks: [Cards, Heroes, Milestones, Galleries, Texts, Carousel, Slider],
+              label: 'Blocks',
+              blocks: [TwoColumns, Hero, HeroFullscreen, Milestone, Gallery, RichText, Carousel, Slider],
+              admin: {
+                initCollapsed: false,
+              },
             },
           ]
         },

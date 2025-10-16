@@ -1,4 +1,5 @@
 import { slugInput as slugInput_73423fa2af93ae72ca90acf3b1e6c08b } from '../../../ui/slugInput'
+import { ColorPickerFieldComponent as ColorPickerFieldComponent_95f860801d0381344387ae1d8e2f4d24 } from '@innovixx/payload-color-picker-field/components'
 import { RscEntryLexicalCell as RscEntryLexicalCell_44fe37237e0ebf4470c9990d8cb7b07e } from '@payloadcms/richtext-lexical/rsc'
 import { RscEntryLexicalField as RscEntryLexicalField_44fe37237e0ebf4470c9990d8cb7b07e } from '@payloadcms/richtext-lexical/rsc'
 import { LexicalDiffComponent as LexicalDiffComponent_44fe37237e0ebf4470c9990d8cb7b07e } from '@payloadcms/richtext-lexical/rsc'
@@ -28,12 +29,12 @@ import { MetaImageComponent as MetaImageComponent_a8a977ebc872c5d5ea7ee689724c08
 import { PreviewComponent as PreviewComponent_a8a977ebc872c5d5ea7ee689724c0860 } from '@payloadcms/plugin-seo/client'
 import { OverviewComponent as OverviewComponent_a8a977ebc872c5d5ea7ee689724c0860 } from '@payloadcms/plugin-seo/client'
 import { BlocksFeatureClient as BlocksFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
-import { ColorPickerFieldComponent as ColorPickerFieldComponent_95f860801d0381344387ae1d8e2f4d24 } from '@innovixx/payload-color-picker-field/components'
 import { default as default_abede1266a0d202441bb52ac6102d05c } from '../../../components/payload/icon'
 import { default as default_7c6ef851f3084cab2be74107c14f6ff2 } from '../../../components/payload/logo'
 
 export const importMap = {
   "./ui/slugInput#slugInput": slugInput_73423fa2af93ae72ca90acf3b1e6c08b,
+  "@innovixx/payload-color-picker-field/components#ColorPickerFieldComponent": ColorPickerFieldComponent_95f860801d0381344387ae1d8e2f4d24,
   "@payloadcms/richtext-lexical/rsc#RscEntryLexicalCell": RscEntryLexicalCell_44fe37237e0ebf4470c9990d8cb7b07e,
   "@payloadcms/richtext-lexical/rsc#RscEntryLexicalField": RscEntryLexicalField_44fe37237e0ebf4470c9990d8cb7b07e,
   "@payloadcms/richtext-lexical/rsc#LexicalDiffComponent": LexicalDiffComponent_44fe37237e0ebf4470c9990d8cb7b07e,
@@ -63,7 +64,6 @@ export const importMap = {
   "@payloadcms/plugin-seo/client#PreviewComponent": PreviewComponent_a8a977ebc872c5d5ea7ee689724c0860,
   "@payloadcms/plugin-seo/client#OverviewComponent": OverviewComponent_a8a977ebc872c5d5ea7ee689724c0860,
   "@payloadcms/richtext-lexical/client#BlocksFeatureClient": BlocksFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
-  "@innovixx/payload-color-picker-field/components#ColorPickerFieldComponent": ColorPickerFieldComponent_95f860801d0381344387ae1d8e2f4d24,
   "/components/payload/icon#default": default_abede1266a0d202441bb52ac6102d05c,
   "/components/payload/logo#default": default_7c6ef851f3084cab2be74107c14f6ff2
 }

@@ -1,19 +1,29 @@
 import type { Block } from 'payload'
 
-export const Galleries: Block = {
-    slug: 'galleries',
-    imageURL: '/assets/blocks/galleries.png',
+export const Gallery: Block = {
+    slug: 'gallery',
+    imageURL: '/assets/blocks/gallery.png',
     admin: {
         disableBlockName: true
     },
     fields: [
         {
-            name: 'headline',
+            name: 'type',
+            type: 'select',
+            options: [
+                { label: 'Dark', value: 'dark' },
+                { label: 'Light', value: 'light' },
+                { label: 'Auto', value: 'auto' },
+            ],
+            required: true,
+        },
+        {
+            name: 'title',
             type: 'text',
             required: true,
         },
         {
-            name: 'tagline',
+            name: 'description',
             type: 'text',
             required: true,
         },
@@ -38,14 +48,14 @@ export const Galleries: Block = {
                 { label: 'Carousel', value: 'carousel' },
                 { label: 'Masonry', value: 'masonry' },
             ],
-            required: true,
+            required: false,
         },
         {
-            name: 'links',
+            name: 'actions',
             type: 'array',
             fields: [
                 {
-                    name: 'name',
+                    name: 'label',
                     type: 'text',
                     required: true,
                 },

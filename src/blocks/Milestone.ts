@@ -1,19 +1,19 @@
 import type { Block } from 'payload'
 
-export const Milestones: Block = {
-    slug: 'milestones',
-    imageURL: '/assets/blocks/milestones.png',
+export const Milestone: Block = {
+    slug: 'milestone',
+    imageURL: '/assets/blocks/milestone.png',
     admin: {
         disableBlockName: true
     },
     fields: [
         {
-            name: 'headline',
+            name: 'title',
             type: 'text',
             required: true,
         },
         {
-            name: 'tagline',
+            name: 'description',
             type: 'text',
             required: true,
         },
@@ -29,12 +29,17 @@ export const Milestones: Block = {
             required: true,
             fields: [
                 {
-                    name: 'value',
+                    name: 'title',
                     type: 'text',
                     required: true,
                 },
                 {
-                    name: 'text',
+                    name: 'appendTitle',
+                    type: 'text',
+                    required: false,
+                },
+                {
+                    name: 'description',
                     type: 'text',
                     required: true,
                 },

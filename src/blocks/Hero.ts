@@ -1,20 +1,20 @@
 import type { Block } from 'payload'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 
-export const Heroes: Block = {
-    slug: 'heroes',
-    imageURL: '/assets/blocks/heroes.png',
+export const Hero: Block = {
+    slug: 'hero',
+    imageURL: '/assets/blocks/hero.png',
     admin: {
         disableBlockName: true
     },
     fields: [
         {
-            name: 'headline',
+            name: 'title',
             type: 'text',
             required: true,
         },
         {
-            name: 'tagline',
+            name: 'description',
             type: 'text',
             required: true,
         },
@@ -25,10 +25,27 @@ export const Heroes: Block = {
             editor: lexicalEditor(),
         },
         {
-            name: 'backgroundImage',
-            type: 'upload',
-            relationTo: 'media',
-            required: true,
+            name: 'background',
+            type: 'group',
+            fields: [
+                {
+                    name: 'position',
+                    type: 'select',
+                    options: [
+                        { label: 'Top Left', value: 'top-left' },
+                        { label: 'Top Right', value: 'top-right' },
+                        { label: 'Down Left', value: 'down-left' },
+                        { label: 'Down Right', value: 'down-right' },
+                    ],
+                    required: true,
+                },
+                {
+                    name: 'image',
+                    type: 'upload',
+                    relationTo: 'media',
+                    required: true,
+                },
+            ],
         },
         {
             name: 'ourLocationsType',
@@ -38,7 +55,7 @@ export const Heroes: Block = {
                 { label: 'Single', value: 'single' },
                 { label: 'Multiple', value: 'multiple' },
             ],
-            required: true,
+            required: false,
         },
         {
             name: 'singleLocation',

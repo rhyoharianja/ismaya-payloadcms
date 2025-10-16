@@ -8,13 +8,13 @@ export const Slider: Block = {
     },
     fields: [
         {
-            name: 'headline',
+            name: 'title',
             type: 'text',
             required: true,
         },
         {
-            name: 'tagline',
-            type: 'text',
+            name: 'description',
+            type: 'textarea',
             required: true,
         },
         {
@@ -30,7 +30,21 @@ export const Slider: Block = {
             required: true,
         },
         {
-            name: 'relation',
+            name: 'itemType',
+            type: 'select',
+            options: [
+                { label: 'One', value: 'one' },
+                { label: 'Two', value: 'two' },
+                { label: 'Three', value: 'three' },
+                { label: 'Four', value: 'four' },
+                { label: 'Five', value: 'five' },
+                { label: 'Six', value: 'six' },
+                { label: 'Seven', value: 'seven' },
+            ],
+            required: true,
+        },
+        {
+            name: 'items',
             type: 'relationship',
             label: 'Items',
             hasMany: true,

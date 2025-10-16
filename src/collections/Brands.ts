@@ -1,8 +1,8 @@
 import type { CollectionConfig } from 'payload'
-import { Heroes } from '../blocks/Heroes'
-import { Galleries } from '../blocks/Galleries'
+import { Hero } from '../blocks/Hero'
+import { Gallery } from '../blocks/Gallery'
 import { Slider } from "../blocks/Slider";
-import { Texts } from "../blocks/Texts";
+import { RichText } from "../blocks/RichText";
 
 export const Brands: CollectionConfig = {
     slug: 'brands',
@@ -38,7 +38,7 @@ export const Brands: CollectionConfig = {
         {
             name: 'blocks',
             type: 'blocks',
-            blocks: [Heroes, Galleries, Slider, Texts],
+            blocks: [Hero, Gallery, Slider, RichText],
         },
     ],
 }

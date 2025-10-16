@@ -17,12 +17,13 @@ import { Careers } from './collections/Careers'
 import { Categories } from './collections/Categories'
 import { News } from './collections/News'
 import { Events } from './collections/Events'
-import { Cards } from './blocks/Cards'
-import { Heroes } from './blocks/Heroes'
-import { Milestones } from './blocks/Milestones'
-import { Galleries } from './blocks/Galleries'
-import { Texts } from './blocks/Texts'
+import { TwoColumns } from './blocks/TwoColumns'
+import { Hero } from './blocks/Hero'
+import { Milestone } from './blocks/Milestone'
+import { Gallery } from './blocks/Gallery'
+import { RichText } from './blocks/RichText'
 import { Slider } from './blocks/Slider'
+import { HeroFullscreen } from './blocks/HeroFullscreen'
 import { SiteConfiguration } from './globals/SiteConfiguration'
 import { seoPlugin } from '@payloadcms/plugin-seo'
 
@@ -50,7 +51,7 @@ export default buildConfig({
     features: ({ defaultFeatures }) => [
       ...defaultFeatures,
       BlocksFeature({
-        blocks: [Cards, Heroes, Milestones, Galleries, Texts, Slider],
+        blocks: [TwoColumns, Hero, Milestone, Gallery, RichText, Slider, HeroFullscreen],
       }),
     ],
   }),

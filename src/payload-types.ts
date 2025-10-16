@@ -187,20 +187,25 @@ export interface Media {
  */
 export interface Page {
   id: number;
-  headline: string;
+  title: string;
   slug?: string | null;
-  tagline: string;
-  status: 'draft' | 'request-review' | 'on-review' | 'publish' | 'unpublish' | 'schedule';
+  description: string;
   startDateTime?: string | null;
   endDateTime?: string | null;
   menu?: (number | null) | Menu;
-  blocks?:
+  status: 'draft' | 'request-review' | 'on-review' | 'publish' | 'unpublish' | 'schedule';
+  content?:
     | (
         | {
             headline: string;
             tagline: string;
-            image: number | Media;
-            content: {
+            asset: {
+              type: 'image' | 'video' | 'color';
+              media?: (number | null) | Media;
+              color?: string | null;
+            };
+            assetPosition: 'left' | 'right';
+            description: {
               root: {
                 type: string;
                 children: {
@@ -215,15 +220,15 @@ export interface Page {
               };
               [k: string]: unknown;
             };
-            contentPosition: 'left' | 'right';
+            descriptionShort: string;
             brands?: (number | Brand)[] | null;
             id?: string | null;
             blockName?: string | null;
-            blockType: 'cards';
+            blockType: 'twoColumns';
           }
         | {
-            headline: string;
-            tagline: string;
+            title: string;
+            description: string;
             content: {
               root: {
                 type: string;
@@ -239,8 +244,11 @@ export interface Page {
               };
               [k: string]: unknown;
             };
-            backgroundImage: number | Media;
-            ourLocationsType: 'none' | 'single' | 'multiple';
+            background: {
+              position: 'top-left' | 'top-right' | 'down-left' | 'down-right';
+              image: number | Media;
+            };
+            ourLocationsType?: ('none' | 'single' | 'multiple') | null;
             singleLocation?: {
               location: {
                 address: string;
@@ -269,39 +277,55 @@ export interface Page {
               | null;
             id?: string | null;
             blockName?: string | null;
-            blockType: 'heroes';
+            blockType: 'hero';
           }
         | {
-            headline: string;
-            tagline: string;
+            logo: number | Media;
+            smallTitle: string;
+            bigTitle: string;
+            description: string;
+            background: {
+              type: 'image' | 'video' | 'color';
+              media?: (number | null) | Media;
+              color?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'heroFullscreen';
+          }
+        | {
+            title: string;
+            description: string;
             background?: (number | null) | Media;
             items: {
-              value: string;
-              text: string;
+              title: string;
+              appendTitle?: string | null;
+              description: string;
               id?: string | null;
             }[];
             id?: string | null;
             blockName?: string | null;
-            blockType: 'milestones';
+            blockType: 'milestone';
           }
         | {
-            headline: string;
-            tagline: string;
+            type: 'dark' | 'light' | 'auto';
+            title: string;
+            description: string;
             images: {
               image: number | Media;
               id?: string | null;
             }[];
-            style: 'grid' | 'carousel' | 'masonry';
-            links?:
+            style?: ('grid' | 'carousel' | 'masonry') | null;
+            actions?:
               | {
-                  name: string;
+                  label: string;
                   url: string;
                   id?: string | null;
                 }[]
               | null;
             id?: string | null;
             blockName?: string | null;
-            blockType: 'galleries';
+            blockType: 'gallery';
           }
         | {
             title: string;
@@ -322,7 +346,7 @@ export interface Page {
             };
             id?: string | null;
             blockName?: string | null;
-            blockType: 'texts';
+            blockType: 'richText';
           }
         | {
             headline: string;
@@ -357,10 +381,11 @@ export interface Page {
             blockType: 'carousel';
           }
         | {
-            headline: string;
-            tagline: string;
+            title: string;
+            description: string;
             collection: 'pages' | 'careers' | 'news' | 'events' | 'brands';
-            relation?:
+            itemType: 'one' | 'two' | 'three' | 'four' | 'five' | 'six' | 'seven';
+            items?:
               | (
                   | {
                       relationTo: 'pages';
@@ -427,8 +452,8 @@ export interface Brand {
   blocks?:
     | (
         | {
-            headline: string;
-            tagline: string;
+            title: string;
+            description: string;
             content: {
               root: {
                 type: string;
@@ -444,8 +469,11 @@ export interface Brand {
               };
               [k: string]: unknown;
             };
-            backgroundImage: number | Media;
-            ourLocationsType: 'none' | 'single' | 'multiple';
+            background: {
+              position: 'top-left' | 'top-right' | 'down-left' | 'down-right';
+              image: number | Media;
+            };
+            ourLocationsType?: ('none' | 'single' | 'multiple') | null;
             singleLocation?: {
               location: {
                 address: string;
@@ -474,32 +502,34 @@ export interface Brand {
               | null;
             id?: string | null;
             blockName?: string | null;
-            blockType: 'heroes';
+            blockType: 'hero';
           }
         | {
-            headline: string;
-            tagline: string;
+            type: 'dark' | 'light' | 'auto';
+            title: string;
+            description: string;
             images: {
               image: number | Media;
               id?: string | null;
             }[];
-            style: 'grid' | 'carousel' | 'masonry';
-            links?:
+            style?: ('grid' | 'carousel' | 'masonry') | null;
+            actions?:
               | {
-                  name: string;
+                  label: string;
                   url: string;
                   id?: string | null;
                 }[]
               | null;
             id?: string | null;
             blockName?: string | null;
-            blockType: 'galleries';
+            blockType: 'gallery';
           }
         | {
-            headline: string;
-            tagline: string;
+            title: string;
+            description: string;
             collection: 'pages' | 'careers' | 'news' | 'events' | 'brands';
-            relation?:
+            itemType: 'one' | 'two' | 'three' | 'four' | 'five' | 'six' | 'seven';
+            items?:
               | (
                   | {
                       relationTo: 'pages';
@@ -546,7 +576,7 @@ export interface Brand {
             };
             id?: string | null;
             blockName?: string | null;
-            blockType: 'texts';
+            blockType: 'richText';
           }
       )[]
     | null;
@@ -622,8 +652,8 @@ export interface News {
   blocks?:
     | (
         | {
-            headline: string;
-            tagline: string;
+            title: string;
+            description: string;
             content: {
               root: {
                 type: string;
@@ -639,8 +669,11 @@ export interface News {
               };
               [k: string]: unknown;
             };
-            backgroundImage: number | Media;
-            ourLocationsType: 'none' | 'single' | 'multiple';
+            background: {
+              position: 'top-left' | 'top-right' | 'down-left' | 'down-right';
+              image: number | Media;
+            };
+            ourLocationsType?: ('none' | 'single' | 'multiple') | null;
             singleLocation?: {
               location: {
                 address: string;
@@ -669,32 +702,34 @@ export interface News {
               | null;
             id?: string | null;
             blockName?: string | null;
-            blockType: 'heroes';
+            blockType: 'hero';
           }
         | {
-            headline: string;
-            tagline: string;
+            type: 'dark' | 'light' | 'auto';
+            title: string;
+            description: string;
             images: {
               image: number | Media;
               id?: string | null;
             }[];
-            style: 'grid' | 'carousel' | 'masonry';
-            links?:
+            style?: ('grid' | 'carousel' | 'masonry') | null;
+            actions?:
               | {
-                  name: string;
+                  label: string;
                   url: string;
                   id?: string | null;
                 }[]
               | null;
             id?: string | null;
             blockName?: string | null;
-            blockType: 'galleries';
+            blockType: 'gallery';
           }
         | {
-            headline: string;
-            tagline: string;
+            title: string;
+            description: string;
             collection: 'pages' | 'careers' | 'news' | 'events' | 'brands';
-            relation?:
+            itemType: 'one' | 'two' | 'three' | 'four' | 'five' | 'six' | 'seven';
+            items?:
               | (
                   | {
                       relationTo: 'pages';
@@ -741,7 +776,7 @@ export interface News {
             };
             id?: string | null;
             blockName?: string | null;
-            blockType: 'texts';
+            blockType: 'richText';
           }
       )[]
     | null;
@@ -790,8 +825,8 @@ export interface Event {
   blocks?:
     | (
         | {
-            headline: string;
-            tagline: string;
+            title: string;
+            description: string;
             content: {
               root: {
                 type: string;
@@ -807,8 +842,11 @@ export interface Event {
               };
               [k: string]: unknown;
             };
-            backgroundImage: number | Media;
-            ourLocationsType: 'none' | 'single' | 'multiple';
+            background: {
+              position: 'top-left' | 'top-right' | 'down-left' | 'down-right';
+              image: number | Media;
+            };
+            ourLocationsType?: ('none' | 'single' | 'multiple') | null;
             singleLocation?: {
               location: {
                 address: string;
@@ -837,32 +875,34 @@ export interface Event {
               | null;
             id?: string | null;
             blockName?: string | null;
-            blockType: 'heroes';
+            blockType: 'hero';
           }
         | {
-            headline: string;
-            tagline: string;
+            type: 'dark' | 'light' | 'auto';
+            title: string;
+            description: string;
             images: {
               image: number | Media;
               id?: string | null;
             }[];
-            style: 'grid' | 'carousel' | 'masonry';
-            links?:
+            style?: ('grid' | 'carousel' | 'masonry') | null;
+            actions?:
               | {
-                  name: string;
+                  label: string;
                   url: string;
                   id?: string | null;
                 }[]
               | null;
             id?: string | null;
             blockName?: string | null;
-            blockType: 'galleries';
+            blockType: 'gallery';
           }
         | {
-            headline: string;
-            tagline: string;
+            title: string;
+            description: string;
             collection: 'pages' | 'careers' | 'news' | 'events' | 'brands';
-            relation?:
+            itemType: 'one' | 'two' | 'three' | 'four' | 'five' | 'six' | 'seven';
+            items?:
               | (
                   | {
                       relationTo: 'pages';
@@ -909,7 +949,7 @@ export interface Event {
             };
             id?: string | null;
             blockName?: string | null;
-            blockType: 'texts';
+            blockType: 'richText';
           }
       )[]
     | null;
@@ -1057,35 +1097,47 @@ export interface MediaSelect<T extends boolean = true> {
  * via the `definition` "pages_select".
  */
 export interface PagesSelect<T extends boolean = true> {
-  headline?: T;
+  title?: T;
   slug?: T;
-  tagline?: T;
-  status?: T;
+  description?: T;
   startDateTime?: T;
   endDateTime?: T;
   menu?: T;
-  blocks?:
+  status?: T;
+  content?:
     | T
     | {
-        cards?:
+        twoColumns?:
           | T
           | {
               headline?: T;
               tagline?: T;
-              image?: T;
-              content?: T;
-              contentPosition?: T;
+              asset?:
+                | T
+                | {
+                    type?: T;
+                    media?: T;
+                    color?: T;
+                  };
+              assetPosition?: T;
+              description?: T;
+              descriptionShort?: T;
               brands?: T;
               id?: T;
               blockName?: T;
             };
-        heroes?:
+        hero?:
           | T
           | {
-              headline?: T;
-              tagline?: T;
+              title?: T;
+              description?: T;
               content?: T;
-              backgroundImage?: T;
+              background?:
+                | T
+                | {
+                    position?: T;
+                    image?: T;
+                  };
               ourLocationsType?: T;
               singleLocation?:
                 | T
@@ -1122,27 +1174,46 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
-        milestones?:
+        heroFullscreen?:
           | T
           | {
-              headline?: T;
-              tagline?: T;
+              logo?: T;
+              smallTitle?: T;
+              bigTitle?: T;
+              description?: T;
+              background?:
+                | T
+                | {
+                    type?: T;
+                    media?: T;
+                    color?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        milestone?:
+          | T
+          | {
+              title?: T;
+              description?: T;
               background?: T;
               items?:
                 | T
                 | {
-                    value?: T;
-                    text?: T;
+                    title?: T;
+                    appendTitle?: T;
+                    description?: T;
                     id?: T;
                   };
               id?: T;
               blockName?: T;
             };
-        galleries?:
+        gallery?:
           | T
           | {
-              headline?: T;
-              tagline?: T;
+              type?: T;
+              title?: T;
+              description?: T;
               images?:
                 | T
                 | {
@@ -1150,17 +1221,17 @@ export interface PagesSelect<T extends boolean = true> {
                     id?: T;
                   };
               style?: T;
-              links?:
+              actions?:
                 | T
                 | {
-                    name?: T;
+                    label?: T;
                     url?: T;
                     id?: T;
                   };
               id?: T;
               blockName?: T;
             };
-        texts?:
+        richText?:
           | T
           | {
               title?: T;
@@ -1181,10 +1252,11 @@ export interface PagesSelect<T extends boolean = true> {
         slider?:
           | T
           | {
-              headline?: T;
-              tagline?: T;
+              title?: T;
+              description?: T;
               collection?: T;
-              relation?: T;
+              itemType?: T;
+              items?: T;
               id?: T;
               blockName?: T;
             };
@@ -1261,13 +1333,18 @@ export interface NewsSelect<T extends boolean = true> {
   blocks?:
     | T
     | {
-        heroes?:
+        hero?:
           | T
           | {
-              headline?: T;
-              tagline?: T;
+              title?: T;
+              description?: T;
               content?: T;
-              backgroundImage?: T;
+              background?:
+                | T
+                | {
+                    position?: T;
+                    image?: T;
+                  };
               ourLocationsType?: T;
               singleLocation?:
                 | T
@@ -1304,11 +1381,12 @@ export interface NewsSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
-        galleries?:
+        gallery?:
           | T
           | {
-              headline?: T;
-              tagline?: T;
+              type?: T;
+              title?: T;
+              description?: T;
               images?:
                 | T
                 | {
@@ -1316,10 +1394,10 @@ export interface NewsSelect<T extends boolean = true> {
                     id?: T;
                   };
               style?: T;
-              links?:
+              actions?:
                 | T
                 | {
-                    name?: T;
+                    label?: T;
                     url?: T;
                     id?: T;
                   };
@@ -1329,14 +1407,15 @@ export interface NewsSelect<T extends boolean = true> {
         slider?:
           | T
           | {
-              headline?: T;
-              tagline?: T;
+              title?: T;
+              description?: T;
               collection?: T;
-              relation?: T;
+              itemType?: T;
+              items?: T;
               id?: T;
               blockName?: T;
             };
-        texts?:
+        richText?:
           | T
           | {
               title?: T;
@@ -1364,13 +1443,18 @@ export interface EventsSelect<T extends boolean = true> {
   blocks?:
     | T
     | {
-        heroes?:
+        hero?:
           | T
           | {
-              headline?: T;
-              tagline?: T;
+              title?: T;
+              description?: T;
               content?: T;
-              backgroundImage?: T;
+              background?:
+                | T
+                | {
+                    position?: T;
+                    image?: T;
+                  };
               ourLocationsType?: T;
               singleLocation?:
                 | T
@@ -1407,11 +1491,12 @@ export interface EventsSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
-        galleries?:
+        gallery?:
           | T
           | {
-              headline?: T;
-              tagline?: T;
+              type?: T;
+              title?: T;
+              description?: T;
               images?:
                 | T
                 | {
@@ -1419,10 +1504,10 @@ export interface EventsSelect<T extends boolean = true> {
                     id?: T;
                   };
               style?: T;
-              links?:
+              actions?:
                 | T
                 | {
-                    name?: T;
+                    label?: T;
                     url?: T;
                     id?: T;
                   };
@@ -1432,14 +1517,15 @@ export interface EventsSelect<T extends boolean = true> {
         slider?:
           | T
           | {
-              headline?: T;
-              tagline?: T;
+              title?: T;
+              description?: T;
               collection?: T;
-              relation?: T;
+              itemType?: T;
+              items?: T;
               id?: T;
               blockName?: T;
             };
-        texts?:
+        richText?:
           | T
           | {
               title?: T;
@@ -1463,13 +1549,18 @@ export interface BrandsSelect<T extends boolean = true> {
   blocks?:
     | T
     | {
-        heroes?:
+        hero?:
           | T
           | {
-              headline?: T;
-              tagline?: T;
+              title?: T;
+              description?: T;
               content?: T;
-              backgroundImage?: T;
+              background?:
+                | T
+                | {
+                    position?: T;
+                    image?: T;
+                  };
               ourLocationsType?: T;
               singleLocation?:
                 | T
@@ -1506,11 +1597,12 @@ export interface BrandsSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
-        galleries?:
+        gallery?:
           | T
           | {
-              headline?: T;
-              tagline?: T;
+              type?: T;
+              title?: T;
+              description?: T;
               images?:
                 | T
                 | {
@@ -1518,10 +1610,10 @@ export interface BrandsSelect<T extends boolean = true> {
                     id?: T;
                   };
               style?: T;
-              links?:
+              actions?:
                 | T
                 | {
-                    name?: T;
+                    label?: T;
                     url?: T;
                     id?: T;
                   };
@@ -1531,14 +1623,15 @@ export interface BrandsSelect<T extends boolean = true> {
         slider?:
           | T
           | {
-              headline?: T;
-              tagline?: T;
+              title?: T;
+              description?: T;
               collection?: T;
-              relation?: T;
+              itemType?: T;
+              items?: T;
               id?: T;
               blockName?: T;
             };
-        texts?:
+        richText?:
           | T
           | {
               title?: T;
