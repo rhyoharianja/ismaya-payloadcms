@@ -30,12 +30,12 @@ export const Users: CollectionConfig = {
                 { label: 'Editor', value: 'editor' },
                 { label: 'User', value: 'user' },
             ],
-            hooks: {
-                beforeChange: [protectRoles]
-            },
-            access: {
-                update: ({ req: { user } }) => checkRole(['admin'], user as User),
-            },
+            // hooks: {
+            //     beforeChange: [protectRoles]
+            // },
+            // access: {
+            //     update: ({ req: { user } }) => checkRole(['admin'], user as User),
+            // },
         },
         {
             name: 'active',
