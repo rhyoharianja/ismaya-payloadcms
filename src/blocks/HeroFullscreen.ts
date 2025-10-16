@@ -1,5 +1,5 @@
 import type { Block } from 'payload'
-import { colorPickerField } from '@innovixx/payload-color-picker-field'
+import { color } from '../fields/color'
 
 export const HeroFullscreen: Block = {
   slug: 'heroFullscreen',
@@ -51,12 +51,12 @@ export const HeroFullscreen: Block = {
             condition: (data, siblingData) => siblingData.type === 'image' || siblingData.type === 'video',
           }
         },
-        colorPickerField({
+        color({
           name: 'color',
           label: 'Color',
           admin: {
             condition: (data, siblingData) => siblingData.type === 'color',
-          }
+          },
         }),
       ],
     },

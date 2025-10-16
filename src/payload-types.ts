@@ -1718,6 +1718,7 @@ export interface SiteConfiguration {
       text: string;
       socialMedia?:
         | {
+            platform: string;
             icon: number | Media;
             url: string;
             id?: string | null;
@@ -1783,6 +1784,7 @@ export interface SiteConfigurationSelect<T extends boolean = true> {
               socialMedia?:
                 | T
                 | {
+                    platform?: T;
                     icon?: T;
                     url?: T;
                     id?: T;

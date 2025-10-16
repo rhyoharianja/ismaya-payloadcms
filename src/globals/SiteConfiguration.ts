@@ -1,6 +1,6 @@
 import type { GlobalConfig } from 'payload'
 import { MetaDescriptionField, MetaImageField, MetaTitleField, OverviewField, PreviewField } from '@payloadcms/plugin-seo/fields'
-import { colorPickerField } from '@innovixx/payload-color-picker-field'
+import { color } from '../fields/color'
 
 export const SiteConfiguration: GlobalConfig = {
   slug: 'site-configuration',
@@ -60,34 +60,34 @@ export const SiteConfiguration: GlobalConfig = {
             {
               type: 'row',
               fields: [
-                colorPickerField({
+                color({
                   name: 'primary_color',
                   label: 'Primary Color',
                 }),
-                colorPickerField({
+                color({
                   name: 'secondary_color',
-                  label: 'Secondary Color'
+                  label: 'Secondary Color',
                 }),
-                colorPickerField({
+                color({
                   name: 'success_color',
-                  label: 'Success Color'
+                  label: 'Success Color',
                 }),
               ],
             },
             {
               type: 'row',
               fields: [
-                colorPickerField({
+                color({
                   name: 'warning_color',
-                  label: 'Warning Color'
+                  label: 'Warning Color',
                 }),
-                colorPickerField({
+                color({
                   name: 'danger_color',
-                  label: 'Danger Color'
+                  label: 'Danger Color',
                 }),
-                colorPickerField({
+                color({
                   name: 'info_color',
-                  label: 'Info Color'
+                  label: 'Info Color',
                 }),
               ],
             },
@@ -159,6 +159,11 @@ export const SiteConfiguration: GlobalConfig = {
                       name: 'socialMedia',
                       type: 'array',
                       fields: [
+                        {
+                          name: 'platform',
+                          type: 'text',
+                          required: true,
+                        },
                         {
                           name: 'icon',
                           type: 'upload',

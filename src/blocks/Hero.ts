@@ -1,5 +1,6 @@
 import type { Block } from 'payload'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
+import { color } from '../fields/color'
 
 export const Hero: Block = {
     slug: 'hero',

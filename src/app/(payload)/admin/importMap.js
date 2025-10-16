@@ -1,5 +1,5 @@
 import { slugInput as slugInput_73423fa2af93ae72ca90acf3b1e6c08b } from '../../../ui/slugInput'
-import { ColorPickerFieldComponent as ColorPickerFieldComponent_95f860801d0381344387ae1d8e2f4d24 } from '@innovixx/payload-color-picker-field/components'
+import { colorInput as colorInput_c6c2394f8c88d1c903e087088f1f2ec1 } from '../../../ui/colorInput'
 import { RscEntryLexicalCell as RscEntryLexicalCell_44fe37237e0ebf4470c9990d8cb7b07e } from '@payloadcms/richtext-lexical/rsc'
 import { RscEntryLexicalField as RscEntryLexicalField_44fe37237e0ebf4470c9990d8cb7b07e } from '@payloadcms/richtext-lexical/rsc'
 import { LexicalDiffComponent as LexicalDiffComponent_44fe37237e0ebf4470c9990d8cb7b07e } from '@payloadcms/richtext-lexical/rsc'
@@ -34,7 +34,7 @@ import { default as default_7c6ef851f3084cab2be74107c14f6ff2 } from '../../../co
 
 export const importMap = {
   "./ui/slugInput#slugInput": slugInput_73423fa2af93ae72ca90acf3b1e6c08b,
-  "@innovixx/payload-color-picker-field/components#ColorPickerFieldComponent": ColorPickerFieldComponent_95f860801d0381344387ae1d8e2f4d24,
+  "./ui/colorInput#colorInput": colorInput_c6c2394f8c88d1c903e087088f1f2ec1,
   "@payloadcms/richtext-lexical/rsc#RscEntryLexicalCell": RscEntryLexicalCell_44fe37237e0ebf4470c9990d8cb7b07e,
   "@payloadcms/richtext-lexical/rsc#RscEntryLexicalField": RscEntryLexicalField_44fe37237e0ebf4470c9990d8cb7b07e,
   "@payloadcms/richtext-lexical/rsc#LexicalDiffComponent": LexicalDiffComponent_44fe37237e0ebf4470c9990d8cb7b07e,
