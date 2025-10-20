@@ -12,7 +12,7 @@ const AfterLogin = () => {
           loop
           className={`${baseClass}__video`}
         >
-          <source src="/assets/login/login-video.webm" type="video/mp4" />
+          <source src="https://8pqxg7bnthg2t2ri.public.blob.vercel-storage.com/homepage-hero.webm" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>

@@ -1,5 +1,5 @@
-import { SlugInput as slugInput_73423fa2af93ae72ca90acf3b1e6c08b } from '../../../ui/slugInput'
-import { ColorInput as colorInput_c6c2394f8c88d1c903e087088f1f2ec1 } from '../../../ui/colorInput'
+import { slugInput as slugInput_73423fa2af93ae72ca90acf3b1e6c08b } from '../../../ui/slugInput'
+import { colorInput as colorInput_c6c2394f8c88d1c903e087088f1f2ec1 } from '../../../ui/colorInput'
 import { RscEntryLexicalCell as RscEntryLexicalCell_44fe37237e0ebf4470c9990d8cb7b07e } from '@payloadcms/richtext-lexical/rsc'
 import { RscEntryLexicalField as RscEntryLexicalField_44fe37237e0ebf4470c9990d8cb7b07e } from '@payloadcms/richtext-lexical/rsc'
 import { LexicalDiffComponent as LexicalDiffComponent_44fe37237e0ebf4470c9990d8cb7b07e } from '@payloadcms/richtext-lexical/rsc'
