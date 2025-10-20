@@ -14,7 +14,7 @@ export const color: Color = (overrides) =>
         components: {
           Field: {
             path: './ui/colorInput',
-            exportName: 'colorInput',
+            exportName: 'ColorInput',
           },
         },
       },

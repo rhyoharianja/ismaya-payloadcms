@@ -1,5 +1,5 @@
-import { slugInput as slugInput_73423fa2af93ae72ca90acf3b1e6c08b } from '../../../ui/slugInput'
-import { colorInput as colorInput_c6c2394f8c88d1c903e087088f1f2ec1 } from '../../../ui/colorInput'
+import { SlugInput as SlugInput_73423fa2af93ae72ca90acf3b1e6c08b } from '../../../ui/slugInput'
+import { ColorInput as ColorInput_c6c2394f8c88d1c903e087088f1f2ec1 } from '../../../ui/colorInput'
 import { RscEntryLexicalCell as RscEntryLexicalCell_44fe37237e0ebf4470c9990d8cb7b07e } from '@payloadcms/richtext-lexical/rsc'
 import { RscEntryLexicalField as RscEntryLexicalField_44fe37237e0ebf4470c9990d8cb7b07e } from '@payloadcms/richtext-lexical/rsc'
 import { LexicalDiffComponent as LexicalDiffComponent_44fe37237e0ebf4470c9990d8cb7b07e } from '@payloadcms/richtext-lexical/rsc'
@@ -34,8 +34,8 @@ import { default as default_7c6ef851f3084cab2be74107c14f6ff2 } from '../../../co
 import { default as default_9f5267d333390f07a3b8d7a8d2911636 } from '../../../components/Login/AfterLogin'
 
 export const importMap = {
-  "./ui/slugInput#slugInput": slugInput_73423fa2af93ae72ca90acf3b1e6c08b,
-  "./ui/colorInput#colorInput": colorInput_c6c2394f8c88d1c903e087088f1f2ec1,
+  "./ui/slugInput#SlugInput": SlugInput_73423fa2af93ae72ca90acf3b1e6c08b,
+  "./ui/colorInput#ColorInput": ColorInput_c6c2394f8c88d1c903e087088f1f2ec1,
   "@payloadcms/richtext-lexical/rsc#RscEntryLexicalCell": RscEntryLexicalCell_44fe37237e0ebf4470c9990d8cb7b07e,
   "@payloadcms/richtext-lexical/rsc#RscEntryLexicalField": RscEntryLexicalField_44fe37237e0ebf4470c9990d8cb7b07e,
   "@payloadcms/richtext-lexical/rsc#LexicalDiffComponent": LexicalDiffComponent_44fe37237e0ebf4470c9990d8cb7b07e,

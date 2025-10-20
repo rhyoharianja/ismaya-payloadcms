@@ -16,7 +16,7 @@ export const slug: Slug = ({ trackingField = 'title' } = {}, overrides) =>
                 components: {
                     Field: {
                         path: './ui/slugInput',
-                        exportName: 'slugInput',
+                        exportName: 'SlugInput',
                         clientProps: {
                             trackingField,
                             fieldName: (overrides as any)?.name || 'slug',
