@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@payloadcms/db-postgres": "3.58.0",
+    "@payloadcms/graphql": "~3.58.0",
     "@payloadcms/next": "3.58.0",
     "@payloadcms/payload-cloud": "3.58.0",
     "@payloadcms/plugin-seo": "3.58.0",
