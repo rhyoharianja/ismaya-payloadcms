@@ -47,6 +47,11 @@ export const News: CollectionConfig = {
             relationTo: 'categories',
             hasMany: true,
             required: false,
+            filterOptions: {
+                group: {
+                    equals: 'news',
+                },
+            },
         },
         {
             name: 'menu',

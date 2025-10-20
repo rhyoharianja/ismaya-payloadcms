@@ -43,7 +43,11 @@ export default buildConfig({
         Logo: '/components/payload/logo',
         Icon: '/components/payload/icon',
       },
+      beforeLogin: ['/components/Login/AfterLogin'],
     },
+  },
+  graphQL: {
+    disable: true,
   },
   collections: [Users, Media, Pages, Positions, Locations, Careers, Categories, News, Events, Brands, Menus],
   globals: [SiteConfiguration],

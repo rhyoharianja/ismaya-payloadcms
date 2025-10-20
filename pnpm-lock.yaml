@@ -11,6 +11,9 @@ importers:
       '@payloadcms/db-postgres':
         specifier: 3.58.0
         version: 3.58.0(payload@3.58.0(graphql@16.11.0)(typescript@5.7.3))
+      '@payloadcms/graphql':
+        specifier: ~3.58.0
+        version: 3.58.0(graphql@16.11.0)(payload@3.58.0(graphql@16.11.0)(typescript@5.7.3))(typescript@5.7.3)
       '@payloadcms/next':
         specifier: 3.58.0
         version: 3.58.0(@types/react@19.1.8)(graphql@16.11.0)(monaco-editor@0.54.0)(next@15.4.4(@babel/core@7.28.4)(@playwright/test@1.54.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.77.4))(payload@3.58.0(graphql@16.11.0)(typescript@5.7.3))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.7.3)
@@ -72,9 +75,6 @@ importers:
         specifier: 0.34.2
         version: 0.34.2
     devDependencies:
-      '@payloadcms/graphql':
-        specifier: ^3.58.1
-        version: 3.59.1(graphql@16.11.0)(payload@3.58.0(graphql@16.11.0)(typescript@5.7.3))(typescript@5.7.3)
       '@playwright/test':
         specifier: 1.54.1
         version: 1.54.1
@@ -1421,13 +1421,6 @@ packages:
     peerDependencies:
       graphql: ^16.8.1
       payload: 3.58.0
-
-  '@payloadcms/graphql@3.59.1':
-    resolution: {integrity: sha512-NOv7er1U/2fARDWiX1ztT39oifEiapHYp9q9u0qSU+BgNy3lx78awOiI359phcRulm1KK8rFcCwKR773/Y5ucQ==}
-    hasBin: true
-    peerDependencies:
-      graphql: ^16.8.1
-      payload: 3.59.1
 
   '@payloadcms/next@3.58.0':
     resolution: {integrity: sha512-z6akwPHNz/O/9n1OcY9yQBBLbYqmjzzueeT9EG8rW0L8a1oaXx+5Poed1vzdhXZGtTccLtcpJwMKY06QalqL9A==}
@@ -5451,17 +5444,6 @@ snapshots:
       payload: 3.58.0(graphql@16.11.0)(typescript@5.7.3)
 
   '@payloadcms/graphql@3.58.0(graphql@16.11.0)(payload@3.58.0(graphql@16.11.0)(typescript@5.7.3))(typescript@5.7.3)':
-    dependencies:
-      graphql: 16.11.0
-      graphql-scalars: 1.22.2(graphql@16.11.0)
-      payload: 3.58.0(graphql@16.11.0)(typescript@5.7.3)
-      pluralize: 8.0.0
-      ts-essentials: 10.0.3(typescript@5.7.3)
-      tsx: 4.19.2
-    transitivePeerDependencies:
-      - typescript
-
-  '@payloadcms/graphql@3.59.1(graphql@16.11.0)(payload@3.58.0(graphql@16.11.0)(typescript@5.7.3))(typescript@5.7.3)':
     dependencies:
       graphql: 16.11.0
       graphql-scalars: 1.22.2(graphql@16.11.0)

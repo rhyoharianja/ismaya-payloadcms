@@ -11,22 +11,17 @@ export const Brands: CollectionConfig = {
         plural: 'Brands'
     },
     admin: {
-        useAsTitle: 'headline'
+        useAsTitle: 'name',
     },
     fields: [
         {
-            name: 'headline',
+            name: 'name',
             type: 'text',
             required: true,
         },
         {
-            name: 'tagline',
-            type: 'text',
-            required: true,
-        },
-        {
-            name: 'status',
-            type: 'checkbox',
+            name: 'description',
+            type: 'textarea',
             required: true,
         },
         {
@@ -36,9 +31,79 @@ export const Brands: CollectionConfig = {
             hasMany: false,
         },
         {
+            name: 'category',
+            type: 'relationship',
+            relationTo: 'categories',
+            hasMany: false,
+            filterOptions: {
+                group: {
+                    equals: 'brands',
+                },
+            },
+        },
+        {
+            name: 'logo',
+            type: 'upload',
+            relationTo: 'media',
+            required: false,
+        },
+        {
             name: 'blocks',
             type: 'blocks',
             blocks: [Hero, Gallery, Slider, RichText],
+        },
+        {
+            name: 'locations',
+            type: 'array',
+            fields: [
+                {
+                    name: 'address',
+                    type: 'text',
+                    required: true,
+                },
+                {
+                    name: 'mapsUrl',
+                    type: 'text',
+                    required: true,
+                },
+                {
+                    name: 'openHours',
+                    type: 'array',
+                    fields: [
+                        {
+                            name: 'title',
+                            type: 'text',
+                            required: true,
+                        },
+                        {
+                            name: 'description',
+                            type: 'text',
+                            required: true,
+                        },
+                    ],
+                },
+                {
+                    name: 'contact',
+                    type: 'array',
+                    fields: [
+                        {
+                            name: 'type',
+                            type: 'text',
+                            required: true,
+                        },
+                        {
+                            name: 'value',
+                            type: 'text',
+                            required: true,
+                        },
+                    ],
+                },
+            ],
+        },
+        {
+            name: 'status',
+            type: 'checkbox',
+            required: true,
         },
     ],
 }

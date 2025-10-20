@@ -21,5 +21,14 @@ export const Categories: CollectionConfig = {
             type: 'textarea',
             required: false,
         },
+        {
+            name: 'group',
+            type: 'select',
+            options: [
+                { label: 'Brands', value: 'brands' },
+                { label: 'Events', value: 'events' },
+            ],
+            required: false,
+        },
     ],
 }

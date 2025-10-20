@@ -31,6 +31,7 @@ import { OverviewComponent as OverviewComponent_a8a977ebc872c5d5ea7ee689724c0860
 import { BlocksFeatureClient as BlocksFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
 import { default as default_abede1266a0d202441bb52ac6102d05c } from '../../../components/payload/icon'
 import { default as default_7c6ef851f3084cab2be74107c14f6ff2 } from '../../../components/payload/logo'
+import { default as default_9f5267d333390f07a3b8d7a8d2911636 } from '../../../components/Login/AfterLogin'
 
 export const importMap = {
   "./ui/slugInput#slugInput": slugInput_73423fa2af93ae72ca90acf3b1e6c08b,
@@ -65,5 +66,6 @@ export const importMap = {
   "@payloadcms/plugin-seo/client#OverviewComponent": OverviewComponent_a8a977ebc872c5d5ea7ee689724c0860,
   "@payloadcms/richtext-lexical/client#BlocksFeatureClient": BlocksFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "/components/payload/icon#default": default_abede1266a0d202441bb52ac6102d05c,
-  "/components/payload/logo#default": default_7c6ef851f3084cab2be74107c14f6ff2
+  "/components/payload/logo#default": default_7c6ef851f3084cab2be74107c14f6ff2,
+  "/components/Login/AfterLogin#default": default_9f5267d333390f07a3b8d7a8d2911636
 }

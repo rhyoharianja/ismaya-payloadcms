@@ -445,10 +445,11 @@ export interface Menu {
  */
 export interface Brand {
   id: number;
-  headline: string;
-  tagline: string;
-  status: boolean;
+  name: string;
+  description: string;
   menu?: (number | null) | Menu;
+  category?: (number | null) | Category;
+  logo?: (number | null) | Media;
   blocks?:
     | (
         | {
@@ -580,6 +581,40 @@ export interface Brand {
           }
       )[]
     | null;
+  locations?:
+    | {
+        address: string;
+        mapsUrl: string;
+        openHours?:
+          | {
+              title: string;
+              description: string;
+              id?: string | null;
+            }[]
+          | null;
+        contact?:
+          | {
+              type: string;
+              value: string;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  status: boolean;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "categories".
+ */
+export interface Category {
+  id: number;
+  title: string;
+  description?: string | null;
+  group?: ('brands' | 'events') | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -780,17 +815,6 @@ export interface News {
           }
       )[]
     | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "categories".
- */
-export interface Category {
-  id: number;
-  title: string;
-  description?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -1315,6 +1339,7 @@ export interface CareersSelect<T extends boolean = true> {
 export interface CategoriesSelect<T extends boolean = true> {
   title?: T;
   description?: T;
+  group?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -1542,10 +1567,11 @@ export interface EventsSelect<T extends boolean = true> {
  * via the `definition` "brands_select".
  */
 export interface BrandsSelect<T extends boolean = true> {
-  headline?: T;
-  tagline?: T;
-  status?: T;
+  name?: T;
+  description?: T;
   menu?: T;
+  category?: T;
+  logo?: T;
   blocks?:
     | T
     | {
@@ -1640,6 +1666,28 @@ export interface BrandsSelect<T extends boolean = true> {
               blockName?: T;
             };
       };
+  locations?:
+    | T
+    | {
+        address?: T;
+        mapsUrl?: T;
+        openHours?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              id?: T;
+            };
+        contact?:
+          | T
+          | {
+              type?: T;
+              value?: T;
+              id?: T;
+            };
+        id?: T;
+      };
+  status?: T;
   updatedAt?: T;
   createdAt?: T;
 }
