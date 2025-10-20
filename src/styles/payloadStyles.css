@@ -15,121 +15,125 @@
 /* Support Payload’s dark mode toggle by adding a custom variant */
 @custom-variant dark (&:where([data-theme=light], [data-theme=light] *));
 
+
+
 :root {
     /* Variables */
-    --theme-bg: var(--theme-elevation-0);
+    --theme-bg: var(--theme-elevation-50);
     --theme-input-bg: var(--theme-elevation-0);
-    --theme-text: var(--theme-elevation-800);
-    --theme-overlay: rgba(5, 5, 5, 0.5);
-    --font-body: 'Suisse Intl', system-ui;
+    --theme-text: var(--theme-elevation-600);
+    --theme-overlay: var(--theme-elevation-900);
+    --font-body: Helvetica, sans-serif;
     --font-mono: monospace;
     --font-serif: 'Merriweather', serif;
-    --style-radius-s: 21px;
-    --style-radius-m: 30px;
-    --style-radius-l: 41px;
+    --style-radius-s: 4px;
+    --style-radius-m: 8px;
+    --style-radius-l: 16px;
     --nav-width: 275px;
+    
+    font-size: 16px;
 
     /* Color Shades */
     --color-base-0: #ffffff;
-    --color-base-50: #fff2f4;
-    --color-base-100: #ffe6e9;
-    --color-base-150: #ffd9de;
-    --color-base-200: #feccd3;
-    --color-base-250: #fec0c7;
-    --color-base-300: #feb3bc;
-    --color-base-350: #fea6b1;
-    --color-base-400: #fe99a6;
-    --color-base-450: #fe8d9b;
-    --color-base-500: #f4455b;
-    --color-base-550: #e34054;
-    --color-base-600: #d13b4e;
-    --color-base-650: #c03647;
-    --color-base-700: #ae3141;
-    --color-base-750: #9d2c3a;
-    --color-base-800: #8c2734;
-    --color-base-850: #7a222d;
-    --color-base-900: #691d27;
-    --color-base-950: #571820;
+    --color-base-50: #fff4ed;
+    --color-base-100: #ffe9dc;
+    --color-base-150: #ffddca;
+    --color-base-200: #ffd2b9;
+    --color-base-250: #ffc7a7;
+    --color-base-300: #ffbc95;
+    --color-base-350: #ffb184;
+    --color-base-400: #ffa672;
+    --color-base-450: #ff9a61;
+    --color-base-500: #f65a00;
+    --color-base-550: #e55300;
+    --color-base-600: #d34d00;
+    --color-base-650: #c14700;
+    --color-base-700: #b04000;
+    --color-base-750: #9e3a00;
+    --color-base-800: #8d3300;
+    --color-base-850: #7b2d00;
+    --color-base-900: #6a2600;
+    --color-base-950: #582000;
     --color-success-0: #ffffff;
-    --color-success-50: #f2fef9;
-    --color-success-100: #e6fcf3;
-    --color-success-150: #d9fbed;
-    --color-success-200: #cdfae6;
-    --color-success-250: #c0f8e0;
-    --color-success-300: #b3f7da;
-    --color-success-350: #a7f6d4;
-    --color-success-400: #9af5ce;
-    --color-success-450: #8df3c8;
-    --color-success-500: #46e4a0;
-    --color-success-550: #41d495;
-    --color-success-600: #3cc389;
-    --color-success-650: #37b37e;
-    --color-success-700: #32a372;
-    --color-success-750: #2d9267;
-    --color-success-800: #28825c;
-    --color-success-850: #237250;
-    --color-success-900: #1e6245;
-    --color-success-950: #195139;
+    --color-success-50: #f1faf6;
+    --color-success-100: #e3f5ed;
+    --color-success-150: #d5efe4;
+    --color-success-200: #c8eadb;
+    --color-success-250: #bae5d3;
+    --color-success-300: #ace0ca;
+    --color-success-350: #9edac1;
+    --color-success-400: #90d5b8;
+    --color-success-450: #82d0af;
+    --color-success-500: #34ad7a;
+    --color-success-550: #30a071;
+    --color-success-600: #2d9468;
+    --color-success-650: #298860;
+    --color-success-700: #257b57;
+    --color-success-750: #226f4e;
+    --color-success-800: #1e6346;
+    --color-success-850: #1a563d;
+    --color-success-900: #164a34;
+    --color-success-950: #133e2b;
     --color-warning-0: #ffffff;
-    --color-warning-50: #fffbf3;
-    --color-warning-100: #fff7e7;
-    --color-warning-150: #fff3db;
-    --color-warning-200: #ffefd0;
-    --color-warning-250: #ffebc4;
-    --color-warning-300: #ffe7b8;
-    --color-warning-350: #ffe3ac;
-    --color-warning-400: #ffdfa0;
-    --color-warning-450: #ffdb94;
-    --color-warning-500: #f6be50;
-    --color-warning-550: #e5b14a;
-    --color-warning-600: #d3a345;
-    --color-warning-650: #c1953f;
-    --color-warning-700: #b08839;
-    --color-warning-750: #9e7a34;
-    --color-warning-800: #8d6d2e;
-    --color-warning-850: #7b5f28;
-    --color-warning-900: #6a5222;
-    --color-warning-950: #58441d;
+    --color-warning-50: #fff9ed;
+    --color-warning-100: #fff3dc;
+    --color-warning-150: #ffeeca;
+    --color-warning-200: #ffe8b9;
+    --color-warning-250: #ffe2a7;
+    --color-warning-300: #ffdc95;
+    --color-warning-350: #ffd684;
+    --color-warning-400: #ffd172;
+    --color-warning-450: #ffcb61;
+    --color-warning-500: #f6a500;
+    --color-warning-550: #e59900;
+    --color-warning-600: #d38e00;
+    --color-warning-650: #c18200;
+    --color-warning-700: #b07600;
+    --color-warning-750: #9e6a00;
+    --color-warning-800: #8d5e00;
+    --color-warning-850: #7b5300;
+    --color-warning-900: #6a4700;
+    --color-warning-950: #583b00;
     --color-error-0: #ffffff;
-    --color-error-50: #fff6f4;
-    --color-error-100: #ffede9;
-    --color-error-150: #fee4de;
-    --color-error-200: #fedbd3;
-    --color-error-250: #fed1c7;
-    --color-error-300: #fec8bc;
-    --color-error-350: #febfb1;
-    --color-error-400: #fdb6a6;
-    --color-error-450: #fdad9b;
-    --color-error-500: #f3775b;
-    --color-error-550: #e26e54;
-    --color-error-600: #d1664e;
-    --color-error-650: #bf5d47;
-    --color-error-700: #ae5541;
-    --color-error-750: #9c4c3a;
-    --color-error-800: #8b4434;
-    --color-error-850: #7a3b2d;
-    --color-error-900: #683327;
-    --color-error-950: #572a20;
+    --color-error-50: #fff3f1;
+    --color-error-100: #ffe8e2;
+    --color-error-150: #ffdcd4;
+    --color-error-200: #ffd0c6;
+    --color-error-250: #ffc5b8;
+    --color-error-300: #ffb9a9;
+    --color-error-350: #ffad9b;
+    --color-error-400: #ffa28d;
+    --color-error-450: #ff967f;
+    --color-error-500: #f6532e;
+    --color-error-550: #e54d2b;
+    --color-error-600: #d34728;
+    --color-error-650: #c14124;
+    --color-error-700: #b03b21;
+    --color-error-750: #9e351e;
+    --color-error-800: #8d2f1a;
+    --color-error-850: #7b2a17;
+    --color-error-900: #6a2414;
+    --color-error-950: #581e11;
     --color-accent-0: #ffffff;
-    --color-accent-50: #ffeef0;
-    --color-accent-100: #ffdde0;
-    --color-accent-150: #ffcbd1;
-    --color-accent-200: #febac1;
-    --color-accent-250: #fea9b2;
-    --color-accent-300: #fe98a3;
-    --color-accent-350: #fe8793;
-    --color-accent-400: #fe7684;
-    --color-accent-450: #fe6475;
-    --color-accent-500: #f4061f;
-    --color-accent-550: #e3051d;
-    --color-accent-600: #d1051a;
-    --color-accent-650: #c00518;
-    --color-accent-700: #ae0416;
-    --color-accent-750: #9d0414;
-    --color-accent-800: #8c0312;
-    --color-accent-850: #7a030f;
-    --color-accent-900: #69020d;
-    --color-accent-950: #57020b;
+    --color-accent-50: #fbedef;
+    --color-accent-100: #f8dcdf;
+    --color-accent-150: #f4cacf;
+    --color-accent-200: #f1b9be;
+    --color-accent-250: #eda7ae;
+    --color-accent-300: #ea959e;
+    --color-accent-350: #e6848e;
+    --color-accent-400: #e3727e;
+    --color-accent-450: #df616e;
+    --color-accent-500: #c50014;
+    --color-accent-550: #b70013;
+    --color-accent-600: #a90011;
+    --color-accent-650: #9b0010;
+    --color-accent-700: #8d000e;
+    --color-accent-750: #7f000d;
+    --color-accent-800: #71000c;
+    --color-accent-850: #62000a;
+    --color-accent-900: #540009;
+    --color-accent-950: #460007;
 
     /* Theme Accent Colors */
     --theme-accent-0: var(--color-accent-0);
@@ -157,31 +161,36 @@
 
 /* Nav Button */
 .hamburger__wrapper {
-    background-color: var(--theme-elevation-500);
+    background-color: var(--theme-elevation-600);
+    border: 0px none var(--theme-elevation-200);
     font-family: Verdana;
+    font-size: 16px;
     color: var(--theme-elevation-0);
 }
 
 .hamburger:before {
-    background-color: var(--theme-elevation-500);
+    background-color: var(--theme-elevation-600);
+    border: 0px none var(--theme-elevation-200);
     font-family: Verdana;
+    font-size: 16px;
     color: var(--theme-elevation-0);
 }
 
 .hamburger:after {
-    background-color: var(--theme-elevation-500);
+    background-color: var(--theme-elevation-600);
+    border: 0px none var(--theme-elevation-200);
     font-family: Verdana;
+    font-size: 16px;
     color: var(--theme-elevation-0);
 }
 
 /* Nav Group Toggle */
 .nav-group__toggle {
     font-family: Verdana;
-    font-size: 19px;
-    font-weight: normal;
+    font-weight: bold;
+    font-size: 20px;
     color: var(--theme-elevation-0);
-    background-color: var(--theme-elevation-500);
-    border: 0px solid #000000;
+    border: 0px none #000000;
 }
 
 /* Nav Group Icon */
@@ -191,41 +200,34 @@
 
 /* Nav Group Label */
 .nav-group__label {
-    color: var(--theme-elevation-0);
-    padding-top: 19px;
-    padding-bottom: 19px;
+    color: var(--theme-elevation-400);
+    font-family: Helvetica;
+    font-weight: bold;
 }
 
 /* Nav */
 .nav {
-    background-color: var(--theme-elevation-500);
+    background-color: var(--theme-elevation-600);
     font-family: Verdana;
     font-weight: normal;
-    font-size: 15px;
+    font-size: 17px;
+    border: 0px none #000000;
     color: var(--theme-elevation-0);
-    padding-left: 1px;
-    padding-right: 1px;
-    padding-top: 2px;
-    padding-bottom: 2px;
 }
 
 /* Dashboard Card Labels */
 .dashboard__label {
     fontFamily: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-family: Verdana;
-    font-size: 19px;
     font-weight: bold;
+    font-size: 18px;
 }
 
 /* Dashboard Card */
 .card {
     background-color: var(--theme-elevation-500);
-    border: 1px solid var(--theme-elevation-0);
+    border: 1px none var(--theme-elevation-500);
     font-family: Verdana;
-    font-weight: normal;
-    border-radius: 19px;
-    padding-left: 22px;
-    padding-right: 22px;
     color: var(--theme-elevation-0);
 }
 
@@ -234,135 +236,156 @@
     fontFamily: Impact;
     font-family: Verdana;
     font-weight: bold;
-    padding-top: 4px;
-    padding-bottom: 4px;
+    font-size: 16px;
+    border: 1px none #000000;
 }
 
 /* Dashboard Card Action Button */
 .card__actions {
     font-family: Verdana;
-    font-weight: normal;
+    font-weight: bold;
 }
 
 /* Background */
 .template-default__wrap {
-    font-family: Verdana;
+    font-family: Helvetica;
     font-size: 17px;
 }
 
 /* Primary Button */
 .btn--style-primary {
-    background-color: var(--theme-elevation-500);
-    font-family: Verdana;
-    font-size: 16px;
-    border: 2px solid var(--theme-elevation-650);
-    border-radius: 21px;
-    color: var(--theme-elevation-0);
-    padding-top: 5px;
-    padding-bottom: 5px;
+    background-color: var(--theme-elevation-600);
+    font-family: Helvetica;
+    font-size: 15px;
+    border: 1px solid var(--theme-elevation-900);
 }
 
 /* Pill */
 .pill {
-    font-family: Verdana;
-    font-size: 15px;
+    font-family: Helvetica;
     font-weight: bold;
-    background-color: var(--theme-elevation-250);
-    border: 2px solid var(--theme-elevation-450);
-    border-radius: 19px;
-    color: var(--theme-elevation-800);
+    font-size: 13px;
+    border: 1px solid var(--theme-elevation-600);
+    color: var(--theme-elevation-600);
 }
 
 /* Input Field */
 .field-type.text:not(.has-many) input {
-    border: 1px solid var(--theme-elevation-800);
-    font-family: Verdana;
-    font-size: 16px;
-    border-radius: 18px;
+    border: 1px solid var(--theme-elevation-400);
+    font-family: Helvetica;
+    font-size: 18px;
+    color: var(--theme-elevation-600);
+    background-color: var(--theme-elevation-0);
 }
 
 /* Document Header */
 .doc-header__title {
-    font-family: Verdana;
-    font-size: 29px;
+    font-family: Helvetica;
     font-weight: bold;
+    font-size: 29px;
+    color: var(--theme-elevation-600);
 }
 
-/* Success Toast Close Button (empty) */
-.Toastify .Toastify__close-button--success {}
+/* Success Toast Close Button */
+.Toastify .Toastify__close-button--success {
+    font-family: Helvetica;
+    font-size: 17px;
+    background-color: var(--theme-elevation-600);
+}
 
-/* Success Toast Progress Bar (empty) */
-.Toastify .Toastify__toast--success .Toastify__progress-bar {}
+/* Success Toast Progress Bar */
+.Toastify .Toastify__toast--success .Toastify__progress-bar {
+    font-family: Helvetica;
+    color: var(--theme-elevation-600);
+    background-color: var(--theme-elevation-200);
+    border: 1px solid var(--theme-elevation-600);
+}
 
-/* Success Toast (empty) */
-.Toastify .Toastify__toast--success {}
+/* Success Toast */
+.Toastify .Toastify__toast--success {
+    font-family: Helvetica;
+    font-size: 17px;
+    background-color: var(--theme-elevation-600);
+    color: var(--theme-elevation-0);
+}
 
-/* Success Toast Close Button (empty) */
-.Toastify .Toastify__close-button--error {}
+/* Success Toast Close Button */
+.Toastify .Toastify__close-button--error {
+    font-family: Helvetica;
+    font-size: 18px;
+    color: var(--theme-elevation-600);
+}
 
-/* Success Toast Progress Bar (empty) */
-.Toastify .Toastify__toast--error .Toastify__progress-bar {}
+/* Success Toast Progress Bar */
+.Toastify .Toastify__toast--error .Toastify__progress-bar {
+    font-family: Helvetica;
+    font-size: 15px;
+    color: var(--theme-elevation-600);
+    background-color: var(--theme-elevation-200);
+}
 
-/* Success Toast (empty) */
-.Toastify .Toastify__toast--error {}
+/* Success Toast */
+.Toastify .Toastify__toast--error {
+    font-family: Helvetica;
+    background-color: var(--theme-elevation-600);
+    color: var(--theme-elevation-0);
+}
 
 /* Collapsible */
 .collapsible {
-    border-radius: 19px;
-    font-family: Verdana;
+    font-family: Helvetica;
+    font-size: 15px;
     font-weight: bold;
-    font-size: 16px;
+    color: var(--theme-elevation-600);
 }
 
 /* Collapsible Content */
 .collapsible__content {
     background-color: var(--theme-elevation-0);
-    font-family: Verdana;
-    font-size: 17px;
-    border: 0px solid #000000;
-    border-radius: 29px;
+    font-family: Helvetica;
+    font-size: 14px;
+    color: var(--theme-elevation-600);
 }
 
 /* Collapsible Toggle */
 .collapsible--style-default>.collapsible__toggle-wrap .collapsible__toggle {
-    background-color: var(--theme-elevation-50);
-    font-family: Verdana;
-    font-size: 16px;
-    border-radius: 19px;
+    background-color: var(--theme-elevation-100);
+    font-family: Helvetica;
+    font-size: 17px;
 }
 
 /* Collapsible Style Default */
 .collapsible--style-default {
-    border: 2px solid var(--theme-elevation-200);
-    font-family: Verdana;
-    border-radius: 21px;
+    border: 1px solid var(--theme-elevation-200);
+    font-family: Helvetica;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 /* Table Row Odd */
 .table tbody tr:nth-child(odd) {
-    background-color: var(--theme-elevation-350);
-    font-family: Verdana;
-    font-size: 15px;
+    background-color: var(--theme-elevation-100);
+    font-family: Helvetica;
+    font-size: 14px;
     border: 1px solid;
-    border-radius: 19px;
 }
 
 /* Search Filter Wrapper */
 .list-controls__wrap {
-    font-family: Verdana;
-    border-radius: 29px;
-    border: 2px solid var(--theme-elevation-800);
+    font-family: Helvetica;
+    background-color: var(--theme-elevation-100);
 }
 
 /* Search  Input */
 .search-filter__input {
-    font-family: Verdana;
-    border-radius: 42px;
-    border: 0px solid;
+    font-family: Helvetica;
+    background-color: var(--theme-elevation-100);
+    font-weight: normal;
+    font-size: 17px;
 }
 
-html[data-theme='light'] {
-    /* light Theme Colors */
+html[data-theme='dark'] {
+    /* Dark Theme Colors */
     --theme-accent-0: var(--color-accent-900);
     --theme-accent-50: var(--color-accent-850);
     --theme-accent-100: var(--color-accent-800);
@@ -385,7 +408,6 @@ html[data-theme='light'] {
     --theme-accent-1000: var(--color-accent-0);
 }
 
-
 .color__input-container .color__color-preview {
     border: 1px dashed #ffb3b3;
     border-radius: 10px 0px 0px 10px;
@@ -406,4 +428,27 @@ html[data-theme='light'] {
 
 .collapsible--style-default>.collapsible__toggle-wrap {
     border-radius: 20px !important;
+}
+
+
+.nav-group__label {
+    padding-top: 15px;
+}
+
+.nav-group__indicator {
+    margin: 7px 5px;
+}
+
+.field-label {
+    font-size: 16px;;
+}
+
+.field-description {
+    margin-bottom: 16px;
+    font-style: italic;
+    font-size: 14px;;
+}
+
+.collapsible__content {
+    background-color: var(--theme-elevation-50);
 }
