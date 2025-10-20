@@ -1,5 +1,4 @@
 import type { CollectionConfig } from 'payload'
-import type { User } from '@/payload-types'
 import { TwoColumns } from '../blocks/TwoColumns'
 import { Hero } from '../blocks/Hero'
 import { HeroFullscreen } from '../blocks/HeroFullscreen'

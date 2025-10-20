@@ -1,7 +1,4 @@
 import type { CollectionConfig } from 'payload'
-import { protectRoles } from './hooks/protectRoles'
-import { checkRole } from './access/checkRole'
-import type { User } from '@/payload-types'
 
 export const Users: CollectionConfig = {
     slug: 'users',

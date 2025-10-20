@@ -10,7 +10,7 @@ export type slugInputProps = TextField & {
   fieldName?: string
 }
 
-export function slugInput(props: slugInputProps) {
+export function SlugInput(props: slugInputProps) {
   const { trackingField, required, admin: { readOnly } = {}, fieldName = 'slug' } = props
 
   const { value: slugValue = '', setValue: setSlugValue } = useField<string>({

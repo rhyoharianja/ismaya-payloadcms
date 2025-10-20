@@ -1,6 +1,4 @@
-// tailwind.config.js
-/** @type {import('tailwindcss').Config} */
-export default {
+const config = {
     content: [
         "./src/**/*.{js,ts,jsx,tsx}",
         "./src/admin/**/*.{js,ts,jsx,tsx}", // Important: Add your admin components folder
@@ -10,3 +8,5 @@ export default {
     },
     plugins: [],
 };
+
+export default config;

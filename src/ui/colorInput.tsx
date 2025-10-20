@@ -8,7 +8,7 @@ interface ColorInputProps {
     path: string
 }
 
-export const colorInput: React.FC<ColorInputProps> = ({ path }) => {
+export const ColorInput: React.FC<ColorInputProps> = ({ path }) => {
     const { value, setValue } = useField<string>({ path })
     const [displayColorPicker, setDisplayColorPicker] = useState(false)
 
@@ -21,7 +21,7 @@ export const colorInput: React.FC<ColorInputProps> = ({ path }) => {
     }, [])
 
     const handleChange = useCallback(
-        (color: any) => {
+        (color: { hex: string }) => {
             setValue(color.hex)
         },
         [setValue],
