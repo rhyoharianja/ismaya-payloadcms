@@ -1,5 +1,5 @@
 {
-  "id": "7ad5c927-b4da-4751-9bd4-607e29f8963f",
+  "id": "b597fd49-9b8b-4008-8cf7-c1abd652ffa7",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -2178,6 +2178,155 @@
       "checkConstraints": {},
       "isRLSEnabled": false
     },
+    "public.pages_blocks_cta": {
+      "name": "pages_blocks_cta",
+      "schema": "",
+      "columns": {
+        "_order": {
+          "name": "_order",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "_parent_id": {
+          "name": "_parent_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "_path": {
+          "name": "_path",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "id": {
+          "name": "id",
+          "type": "varchar",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "icon_id": {
+          "name": "icon_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "platform": {
+          "name": "platform",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "url": {
+          "name": "url",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "block_name": {
+          "name": "block_name",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "pages_blocks_cta_order_idx": {
+          "name": "pages_blocks_cta_order_idx",
+          "columns": [
+            {
+              "expression": "_order",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "pages_blocks_cta_parent_id_idx": {
+          "name": "pages_blocks_cta_parent_id_idx",
+          "columns": [
+            {
+              "expression": "_parent_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "pages_blocks_cta_path_idx": {
+          "name": "pages_blocks_cta_path_idx",
+          "columns": [
+            {
+              "expression": "_path",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "pages_blocks_cta_icon_idx": {
+          "name": "pages_blocks_cta_icon_idx",
+          "columns": [
+            {
+              "expression": "icon_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "pages_blocks_cta_icon_id_media_id_fk": {
+          "name": "pages_blocks_cta_icon_id_media_id_fk",
+          "tableFrom": "pages_blocks_cta",
+          "tableTo": "media",
+          "columnsFrom": [
+            "icon_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        },
+        "pages_blocks_cta_parent_id_fk": {
+          "name": "pages_blocks_cta_parent_id_fk",
+          "tableFrom": "pages_blocks_cta",
+          "tableTo": "pages",
+          "columnsFrom": [
+            "_parent_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
     "public.pages": {
       "name": "pages",
       "schema": "",
@@ -2421,12 +2570,6 @@
           "primaryKey": false,
           "notNull": false
         },
-        "careers_id": {
-          "name": "careers_id",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
-        },
         "news_id": {
           "name": "news_id",
           "type": "integer",
@@ -2516,21 +2659,6 @@
           "method": "btree",
           "with": {}
         },
-        "pages_rels_careers_id_idx": {
-          "name": "pages_rels_careers_id_idx",
-          "columns": [
-            {
-              "expression": "careers_id",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        },
         "pages_rels_news_id_idx": {
           "name": "pages_rels_news_id_idx",
           "columns": [
@@ -2595,19 +2723,6 @@
           "tableTo": "pages",
           "columnsFrom": [
             "pages_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
-        },
-        "pages_rels_careers_fk": {
-          "name": "pages_rels_careers_fk",
-          "tableFrom": "pages_rels",
-          "tableTo": "careers",
-          "columnsFrom": [
-            "careers_id"
           ],
           "columnsTo": [
             "id"
@@ -4426,6 +4541,161 @@
       "checkConstraints": {},
       "isRLSEnabled": false
     },
+    "public._pages_v_blocks_cta": {
+      "name": "_pages_v_blocks_cta",
+      "schema": "",
+      "columns": {
+        "_order": {
+          "name": "_order",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "_parent_id": {
+          "name": "_parent_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "_path": {
+          "name": "_path",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "icon_id": {
+          "name": "icon_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "platform": {
+          "name": "platform",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "url": {
+          "name": "url",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "_uuid": {
+          "name": "_uuid",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "block_name": {
+          "name": "block_name",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "_pages_v_blocks_cta_order_idx": {
+          "name": "_pages_v_blocks_cta_order_idx",
+          "columns": [
+            {
+              "expression": "_order",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "_pages_v_blocks_cta_parent_id_idx": {
+          "name": "_pages_v_blocks_cta_parent_id_idx",
+          "columns": [
+            {
+              "expression": "_parent_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "_pages_v_blocks_cta_path_idx": {
+          "name": "_pages_v_blocks_cta_path_idx",
+          "columns": [
+            {
+              "expression": "_path",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "_pages_v_blocks_cta_icon_idx": {
+          "name": "_pages_v_blocks_cta_icon_idx",
+          "columns": [
+            {
+              "expression": "icon_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "_pages_v_blocks_cta_icon_id_media_id_fk": {
+          "name": "_pages_v_blocks_cta_icon_id_media_id_fk",
+          "tableFrom": "_pages_v_blocks_cta",
+          "tableTo": "media",
+          "columnsFrom": [
+            "icon_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        },
+        "_pages_v_blocks_cta_parent_id_fk": {
+          "name": "_pages_v_blocks_cta_parent_id_fk",
+          "tableFrom": "_pages_v_blocks_cta",
+          "tableTo": "_pages_v",
+          "columnsFrom": [
+            "_parent_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
     "public._pages_v": {
       "name": "_pages_v",
       "schema": "",
@@ -4745,12 +5015,6 @@
           "primaryKey": false,
           "notNull": false
         },
-        "careers_id": {
-          "name": "careers_id",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
-        },
         "news_id": {
           "name": "news_id",
           "type": "integer",
@@ -4840,21 +5104,6 @@
           "method": "btree",
           "with": {}
         },
-        "_pages_v_rels_careers_id_idx": {
-          "name": "_pages_v_rels_careers_id_idx",
-          "columns": [
-            {
-              "expression": "careers_id",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        },
         "_pages_v_rels_news_id_idx": {
           "name": "_pages_v_rels_news_id_idx",
           "columns": [
@@ -4919,19 +5168,6 @@
           "tableTo": "pages",
           "columnsFrom": [
             "pages_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
-        },
-        "_pages_v_rels_careers_fk": {
-          "name": "_pages_v_rels_careers_fk",
-          "tableFrom": "_pages_v_rels",
-          "tableTo": "careers",
-          "columnsFrom": [
-            "careers_id"
           ],
           "columnsTo": [
             "id"
@@ -5168,261 +5404,6 @@
       "checkConstraints": {},
       "isRLSEnabled": false
     },
-    "public.careers": {
-      "name": "careers",
-      "schema": "",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "serial",
-          "primaryKey": true,
-          "notNull": true
-        },
-        "title": {
-          "name": "title",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "description": {
-          "name": "description",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "qualification": {
-          "name": "qualification",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "position_id": {
-          "name": "position_id",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "active": {
-          "name": "active",
-          "type": "boolean",
-          "primaryKey": false,
-          "notNull": false,
-          "default": true
-        },
-        "updated_at": {
-          "name": "updated_at",
-          "type": "timestamp(3) with time zone",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "now()"
-        },
-        "created_at": {
-          "name": "created_at",
-          "type": "timestamp(3) with time zone",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "now()"
-        }
-      },
-      "indexes": {
-        "careers_position_idx": {
-          "name": "careers_position_idx",
-          "columns": [
-            {
-              "expression": "position_id",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        },
-        "careers_updated_at_idx": {
-          "name": "careers_updated_at_idx",
-          "columns": [
-            {
-              "expression": "updated_at",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        },
-        "careers_created_at_idx": {
-          "name": "careers_created_at_idx",
-          "columns": [
-            {
-              "expression": "created_at",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        }
-      },
-      "foreignKeys": {
-        "careers_position_id_positions_id_fk": {
-          "name": "careers_position_id_positions_id_fk",
-          "tableFrom": "careers",
-          "tableTo": "positions",
-          "columnsFrom": [
-            "position_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "set null",
-          "onUpdate": "no action"
-        }
-      },
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "policies": {},
-      "checkConstraints": {},
-      "isRLSEnabled": false
-    },
-    "public.careers_rels": {
-      "name": "careers_rels",
-      "schema": "",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "serial",
-          "primaryKey": true,
-          "notNull": true
-        },
-        "order": {
-          "name": "order",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "parent_id": {
-          "name": "parent_id",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "path": {
-          "name": "path",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "locations_id": {
-          "name": "locations_id",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
-        }
-      },
-      "indexes": {
-        "careers_rels_order_idx": {
-          "name": "careers_rels_order_idx",
-          "columns": [
-            {
-              "expression": "order",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        },
-        "careers_rels_parent_idx": {
-          "name": "careers_rels_parent_idx",
-          "columns": [
-            {
-              "expression": "parent_id",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        },
-        "careers_rels_path_idx": {
-          "name": "careers_rels_path_idx",
-          "columns": [
-            {
-              "expression": "path",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        },
-        "careers_rels_locations_id_idx": {
-          "name": "careers_rels_locations_id_idx",
-          "columns": [
-            {
-              "expression": "locations_id",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        }
-      },
-      "foreignKeys": {
-        "careers_rels_parent_fk": {
-          "name": "careers_rels_parent_fk",
-          "tableFrom": "careers_rels",
-          "tableTo": "careers",
-          "columnsFrom": [
-            "parent_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
-        },
-        "careers_rels_locations_fk": {
-          "name": "careers_rels_locations_fk",
-          "tableFrom": "careers_rels",
-          "tableTo": "locations",
-          "columnsFrom": [
-            "locations_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
-        }
-      },
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "policies": {},
-      "checkConstraints": {},
-      "isRLSEnabled": false
-    },
     "public.categories": {
       "name": "categories",
       "schema": "",
@@ -5442,6 +5423,13 @@
         "description": {
           "name": "description",
           "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "group": {
+          "name": "group",
+          "type": "enum_categories_group",
+          "typeSchema": "public",
           "primaryKey": false,
           "notNull": false
         },
@@ -6649,12 +6637,6 @@
           "primaryKey": false,
           "notNull": false
         },
-        "careers_id": {
-          "name": "careers_id",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
-        },
         "news_id": {
           "name": "news_id",
           "type": "integer",
@@ -6750,21 +6732,6 @@
           "method": "btree",
           "with": {}
         },
-        "news_rels_careers_id_idx": {
-          "name": "news_rels_careers_id_idx",
-          "columns": [
-            {
-              "expression": "careers_id",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        },
         "news_rels_news_id_idx": {
           "name": "news_rels_news_id_idx",
           "columns": [
@@ -6844,19 +6811,6 @@
           "tableTo": "pages",
           "columnsFrom": [
             "pages_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
-        },
-        "news_rels_careers_fk": {
-          "name": "news_rels_careers_fk",
-          "tableFrom": "news_rels",
-          "tableTo": "careers",
-          "columnsFrom": [
-            "careers_id"
           ],
           "columnsTo": [
             "id"
@@ -8066,12 +8020,6 @@
           "primaryKey": false,
           "notNull": false
         },
-        "careers_id": {
-          "name": "careers_id",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
-        },
         "news_id": {
           "name": "news_id",
           "type": "integer",
@@ -8152,21 +8100,6 @@
           "method": "btree",
           "with": {}
         },
-        "events_rels_careers_id_idx": {
-          "name": "events_rels_careers_id_idx",
-          "columns": [
-            {
-              "expression": "careers_id",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        },
         "events_rels_news_id_idx": {
           "name": "events_rels_news_id_idx",
           "columns": [
@@ -8233,19 +8166,6 @@
           "tableTo": "pages",
           "columnsFrom": [
             "pages_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
-        },
-        "events_rels_careers_fk": {
-          "name": "events_rels_careers_fk",
-          "tableFrom": "events_rels",
-          "tableTo": "careers",
-          "columnsFrom": [
-            "careers_id"
           ],
           "columnsTo": [
             "id"
@@ -9251,6 +9171,270 @@
       "checkConstraints": {},
       "isRLSEnabled": false
     },
+    "public.brands_locations_open_hours": {
+      "name": "brands_locations_open_hours",
+      "schema": "",
+      "columns": {
+        "_order": {
+          "name": "_order",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "_parent_id": {
+          "name": "_parent_id",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "id": {
+          "name": "id",
+          "type": "varchar",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "title": {
+          "name": "title",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "brands_locations_open_hours_order_idx": {
+          "name": "brands_locations_open_hours_order_idx",
+          "columns": [
+            {
+              "expression": "_order",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "brands_locations_open_hours_parent_id_idx": {
+          "name": "brands_locations_open_hours_parent_id_idx",
+          "columns": [
+            {
+              "expression": "_parent_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "brands_locations_open_hours_parent_id_fk": {
+          "name": "brands_locations_open_hours_parent_id_fk",
+          "tableFrom": "brands_locations_open_hours",
+          "tableTo": "brands_locations",
+          "columnsFrom": [
+            "_parent_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.brands_locations_contact": {
+      "name": "brands_locations_contact",
+      "schema": "",
+      "columns": {
+        "_order": {
+          "name": "_order",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "_parent_id": {
+          "name": "_parent_id",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "id": {
+          "name": "id",
+          "type": "varchar",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "type": {
+          "name": "type",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "value": {
+          "name": "value",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "brands_locations_contact_order_idx": {
+          "name": "brands_locations_contact_order_idx",
+          "columns": [
+            {
+              "expression": "_order",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "brands_locations_contact_parent_id_idx": {
+          "name": "brands_locations_contact_parent_id_idx",
+          "columns": [
+            {
+              "expression": "_parent_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "brands_locations_contact_parent_id_fk": {
+          "name": "brands_locations_contact_parent_id_fk",
+          "tableFrom": "brands_locations_contact",
+          "tableTo": "brands_locations",
+          "columnsFrom": [
+            "_parent_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.brands_locations": {
+      "name": "brands_locations",
+      "schema": "",
+      "columns": {
+        "_order": {
+          "name": "_order",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "_parent_id": {
+          "name": "_parent_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "id": {
+          "name": "id",
+          "type": "varchar",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "address": {
+          "name": "address",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "maps_url": {
+          "name": "maps_url",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "brands_locations_order_idx": {
+          "name": "brands_locations_order_idx",
+          "columns": [
+            {
+              "expression": "_order",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "brands_locations_parent_id_idx": {
+          "name": "brands_locations_parent_id_idx",
+          "columns": [
+            {
+              "expression": "_parent_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "brands_locations_parent_id_fk": {
+          "name": "brands_locations_parent_id_fk",
+          "tableFrom": "brands_locations",
+          "tableTo": "brands",
+          "columnsFrom": [
+            "_parent_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
     "public.brands": {
       "name": "brands",
       "schema": "",
@@ -9261,17 +9445,35 @@
           "primaryKey": true,
           "notNull": true
         },
-        "headline": {
-          "name": "headline",
+        "name": {
+          "name": "name",
           "type": "varchar",
           "primaryKey": false,
           "notNull": true
         },
-        "tagline": {
-          "name": "tagline",
+        "description": {
+          "name": "description",
           "type": "varchar",
           "primaryKey": false,
           "notNull": true
+        },
+        "menu_id": {
+          "name": "menu_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "category_id": {
+          "name": "category_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "logo_id": {
+          "name": "logo_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
         },
         "status": {
           "name": "status",
@@ -9279,12 +9481,6 @@
           "primaryKey": false,
           "notNull": true,
           "default": false
-        },
-        "menu_id": {
-          "name": "menu_id",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
         },
         "updated_at": {
           "name": "updated_at",
@@ -9307,6 +9503,36 @@
           "columns": [
             {
               "expression": "menu_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "brands_category_idx": {
+          "name": "brands_category_idx",
+          "columns": [
+            {
+              "expression": "category_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "brands_logo_idx": {
+          "name": "brands_logo_idx",
+          "columns": [
+            {
+              "expression": "logo_id",
               "isExpression": false,
               "asc": true,
               "nulls": "last"
@@ -9361,6 +9587,32 @@
           ],
           "onDelete": "set null",
           "onUpdate": "no action"
+        },
+        "brands_category_id_categories_id_fk": {
+          "name": "brands_category_id_categories_id_fk",
+          "tableFrom": "brands",
+          "tableTo": "categories",
+          "columnsFrom": [
+            "category_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        },
+        "brands_logo_id_media_id_fk": {
+          "name": "brands_logo_id_media_id_fk",
+          "tableFrom": "brands",
+          "tableTo": "media",
+          "columnsFrom": [
+            "logo_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
         }
       },
       "compositePrimaryKeys": {},
@@ -9399,12 +9651,6 @@
         },
         "pages_id": {
           "name": "pages_id",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "careers_id": {
-          "name": "careers_id",
           "type": "integer",
           "primaryKey": false,
           "notNull": false
@@ -9489,21 +9735,6 @@
           "method": "btree",
           "with": {}
         },
-        "brands_rels_careers_id_idx": {
-          "name": "brands_rels_careers_id_idx",
-          "columns": [
-            {
-              "expression": "careers_id",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        },
         "brands_rels_news_id_idx": {
           "name": "brands_rels_news_id_idx",
           "columns": [
@@ -9570,19 +9801,6 @@
           "tableTo": "pages",
           "columnsFrom": [
             "pages_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
-        },
-        "brands_rels_careers_fk": {
-          "name": "brands_rels_careers_fk",
-          "tableFrom": "brands_rels",
-          "tableTo": "careers",
-          "columnsFrom": [
-            "careers_id"
           ],
           "columnsTo": [
             "id"
@@ -9905,12 +10123,6 @@
           "primaryKey": false,
           "notNull": false
         },
-        "careers_id": {
-          "name": "careers_id",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
-        },
         "categories_id": {
           "name": "categories_id",
           "type": "integer",
@@ -10053,21 +10265,6 @@
           "columns": [
             {
               "expression": "locations_id",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        },
-        "payload_locked_documents_rels_careers_id_idx": {
-          "name": "payload_locked_documents_rels_careers_id_idx",
-          "columns": [
-            {
-              "expression": "careers_id",
               "isExpression": false,
               "asc": true,
               "nulls": "last"
@@ -10226,19 +10423,6 @@
           "tableTo": "locations",
           "columnsFrom": [
             "locations_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
-        },
-        "payload_locked_documents_rels_careers_fk": {
-          "name": "payload_locked_documents_rels_careers_fk",
-          "tableFrom": "payload_locked_documents_rels",
-          "tableTo": "careers",
-          "columnsFrom": [
-            "careers_id"
           ],
           "columnsTo": [
             "id"
@@ -10636,6 +10820,12 @@
           "name": "id",
           "type": "varchar",
           "primaryKey": true,
+          "notNull": true
+        },
+        "platform": {
+          "name": "platform",
+          "type": "varchar",
+          "primaryKey": false,
           "notNull": true
         },
         "icon_id": {
@@ -11266,7 +11456,6 @@
       "schema": "public",
       "values": [
         "pages",
-        "careers",
         "news",
         "events",
         "brands"
@@ -11277,7 +11466,6 @@
       "schema": "public",
       "values": [
         "pages",
-        "careers",
         "news",
         "events",
         "brands"
@@ -11376,7 +11564,6 @@
       "schema": "public",
       "values": [
         "pages",
-        "careers",
         "news",
         "events",
         "brands"
@@ -11387,7 +11574,6 @@
       "schema": "public",
       "values": [
         "pages",
-        "careers",
         "news",
         "events",
         "brands"
@@ -11416,6 +11602,14 @@
         "publish",
         "unpublish",
         "schedule"
+      ]
+    },
+    "public.enum_categories_group": {
+      "name": "enum_categories_group",
+      "schema": "public",
+      "values": [
+        "brands",
+        "events"
       ]
     },
     "public.enum_news_blocks_hero_background_position": {
@@ -11460,7 +11654,6 @@
       "schema": "public",
       "values": [
         "pages",
-        "careers",
         "news",
         "events",
         "brands"
@@ -11521,7 +11714,6 @@
       "schema": "public",
       "values": [
         "pages",
-        "careers",
         "news",
         "events",
         "brands"
@@ -11582,7 +11774,6 @@
       "schema": "public",
       "values": [
         "pages",
-        "careers",
         "news",
         "events",
         "brands"
