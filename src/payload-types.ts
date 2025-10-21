@@ -403,6 +403,14 @@ export interface Page {
             blockName?: string | null;
             blockType: 'slider';
           }
+        | {
+            icon: number | Media;
+            platform: string;
+            url: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'cta';
+          }
       )[]
     | null;
   meta?: {
@@ -1240,6 +1248,15 @@ export interface PagesSelect<T extends boolean = true> {
               collection?: T;
               itemType?: T;
               items?: T;
+              id?: T;
+              blockName?: T;
+            };
+        cta?:
+          | T
+          | {
+              icon?: T;
+              platform?: T;
+              url?: T;
               id?: T;
               blockName?: T;
             };

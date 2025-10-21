@@ -7,6 +7,7 @@ import { Gallery } from '../blocks/Gallery'
 import { RichText } from '../blocks/RichText'
 import { Carousel } from '../blocks/Carousel'
 import { Slider } from '../blocks/Slider'
+import { CTA } from '../blocks/CTA'
 import { slug } from '../fields/slug'
 import { MetaDescriptionField, MetaImageField, MetaTitleField, OverviewField, PreviewField } from '@payloadcms/plugin-seo/fields'
 
@@ -107,7 +108,7 @@ export const Pages: CollectionConfig = {
               name: 'content',
               type: 'blocks',
               label: 'Blocks',
-              blocks: [TwoColumns, Hero, HeroFullscreen, Milestone, Gallery, RichText, Carousel, Slider],
+              blocks: [TwoColumns, Hero, HeroFullscreen, Milestone, Gallery, RichText, Carousel, Slider, CTA],
               admin: {
                 initCollapsed: false,
               },

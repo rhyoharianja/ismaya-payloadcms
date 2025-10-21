@@ -23,6 +23,7 @@ import { Gallery } from './blocks/Gallery'
 import { RichText } from './blocks/RichText'
 import { Slider } from './blocks/Slider'
 import { HeroFullscreen } from './blocks/HeroFullscreen'
+import { CTA } from './blocks/CTA'
 import { SiteConfiguration } from './globals/SiteConfiguration'
 import { seoPlugin } from '@payloadcms/plugin-seo'
 
@@ -54,7 +55,7 @@ export default buildConfig({
     features: ({ defaultFeatures }) => [
       ...defaultFeatures,
       BlocksFeature({
-        blocks: [TwoColumns, Hero, Milestone, Gallery, RichText, Slider, HeroFullscreen],
+        blocks: [TwoColumns, Hero, Milestone, Gallery, RichText, Slider, HeroFullscreen, CTA],
       }),
     ],
   }),
