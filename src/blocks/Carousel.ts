@@ -22,7 +22,6 @@ export const Carousel: Block = {
             type: 'select',
             options: [
                 { label: 'Pages', value: 'pages' },
-                { label: 'Careers', value: 'careers' },
                 { label: 'News', value: 'news' },
                 { label: 'Events', value: 'events' },
                 { label: 'Brands', value: 'brands' },
@@ -36,7 +35,6 @@ export const Carousel: Block = {
             hasMany: true,
             relationTo: [
                 'pages',
-                'careers',
                 'news',
                 'events',
                 'brands',

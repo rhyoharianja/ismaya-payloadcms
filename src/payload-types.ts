@@ -72,7 +72,6 @@ export interface Config {
     pages: Page;
     positions: Position;
     locations: Location;
-    careers: Career;
     categories: Category;
     news: News;
     events: Event;
@@ -89,7 +88,6 @@ export interface Config {
     pages: PagesSelect<false> | PagesSelect<true>;
     positions: PositionsSelect<false> | PositionsSelect<true>;
     locations: LocationsSelect<false> | LocationsSelect<true>;
-    careers: CareersSelect<false> | CareersSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     news: NewsSelect<false> | NewsSelect<true>;
     events: EventsSelect<false> | EventsSelect<true>;
@@ -351,16 +349,12 @@ export interface Page {
         | {
             headline: string;
             tagline: string;
-            collection: 'pages' | 'careers' | 'news' | 'events' | 'brands';
+            collection: 'pages' | 'news' | 'events' | 'brands';
             relation?:
               | (
                   | {
                       relationTo: 'pages';
                       value: number | Page;
-                    }
-                  | {
-                      relationTo: 'careers';
-                      value: number | Career;
                     }
                   | {
                       relationTo: 'news';
@@ -383,17 +377,13 @@ export interface Page {
         | {
             title: string;
             description: string;
-            collection: 'pages' | 'careers' | 'news' | 'events' | 'brands';
+            collection: 'pages' | 'news' | 'events' | 'brands';
             itemType: 'one' | 'two' | 'three' | 'four' | 'five' | 'six' | 'seven';
             items?:
               | (
                   | {
                       relationTo: 'pages';
                       value: number | Page;
-                    }
-                  | {
-                      relationTo: 'careers';
-                      value: number | Career;
                     }
                   | {
                       relationTo: 'news';
@@ -528,17 +518,13 @@ export interface Brand {
         | {
             title: string;
             description: string;
-            collection: 'pages' | 'careers' | 'news' | 'events' | 'brands';
+            collection: 'pages' | 'news' | 'events' | 'brands';
             itemType: 'one' | 'two' | 'three' | 'four' | 'five' | 'six' | 'seven';
             items?:
               | (
                   | {
                       relationTo: 'pages';
                       value: number | Page;
-                    }
-                  | {
-                      relationTo: 'careers';
-                      value: number | Career;
                     }
                   | {
                       relationTo: 'news';
@@ -615,45 +601,6 @@ export interface Category {
   title: string;
   description?: string | null;
   group?: ('brands' | 'events') | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "careers".
- */
-export interface Career {
-  id: number;
-  title: string;
-  description: string;
-  qualification: string;
-  position: number | Position;
-  location: (number | Location)[];
-  active?: boolean | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "positions".
- */
-export interface Position {
-  id: number;
-  name: string;
-  description: string;
-  active?: boolean | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "locations".
- */
-export interface Location {
-  id: number;
-  name: string;
-  description: string;
-  active?: boolean | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -762,17 +709,13 @@ export interface News {
         | {
             title: string;
             description: string;
-            collection: 'pages' | 'careers' | 'news' | 'events' | 'brands';
+            collection: 'pages' | 'news' | 'events' | 'brands';
             itemType: 'one' | 'two' | 'three' | 'four' | 'five' | 'six' | 'seven';
             items?:
               | (
                   | {
                       relationTo: 'pages';
                       value: number | Page;
-                    }
-                  | {
-                      relationTo: 'careers';
-                      value: number | Career;
                     }
                   | {
                       relationTo: 'news';
@@ -924,17 +867,13 @@ export interface Event {
         | {
             title: string;
             description: string;
-            collection: 'pages' | 'careers' | 'news' | 'events' | 'brands';
+            collection: 'pages' | 'news' | 'events' | 'brands';
             itemType: 'one' | 'two' | 'three' | 'four' | 'five' | 'six' | 'seven';
             items?:
               | (
                   | {
                       relationTo: 'pages';
                       value: number | Page;
-                    }
-                  | {
-                      relationTo: 'careers';
-                      value: number | Career;
                     }
                   | {
                       relationTo: 'news';
@@ -982,6 +921,30 @@ export interface Event {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "positions".
+ */
+export interface Position {
+  id: number;
+  name: string;
+  description: string;
+  active?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "locations".
+ */
+export interface Location {
+  id: number;
+  name: string;
+  description: string;
+  active?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -1006,10 +969,6 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'locations';
         value: number | Location;
-      } | null)
-    | ({
-        relationTo: 'careers';
-        value: number | Career;
       } | null)
     | ({
         relationTo: 'categories';
@@ -1314,20 +1273,6 @@ export interface PositionsSelect<T extends boolean = true> {
 export interface LocationsSelect<T extends boolean = true> {
   name?: T;
   description?: T;
-  active?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "careers_select".
- */
-export interface CareersSelect<T extends boolean = true> {
-  title?: T;
-  description?: T;
-  qualification?: T;
-  position?: T;
-  location?: T;
   active?: T;
   updatedAt?: T;
   createdAt?: T;

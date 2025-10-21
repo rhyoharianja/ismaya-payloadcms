@@ -13,7 +13,6 @@ import { Brands } from './collections/Brands'
 import { Menus } from './collections/Menus'
 import { Positions } from './collections/Positions'
 import { Locations } from './collections/Locations'
-import { Careers } from './collections/Careers'
 import { Categories } from './collections/Categories'
 import { News } from './collections/News'
 import { Events } from './collections/Events'
@@ -49,7 +48,7 @@ export default buildConfig({
   graphQL: {
     disable: true,
   },
-  collections: [Users, Media, Pages, Positions, Locations, Careers, Categories, News, Events, Brands, Menus],
+  collections: [Users, Media, Pages, Positions, Locations, Categories, News, Events, Brands, Menus],
   globals: [SiteConfiguration],
   editor: lexicalEditor({
     features: ({ defaultFeatures }) => [
